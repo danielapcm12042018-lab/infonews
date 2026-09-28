@@ -1,0 +1,103 @@
+/* =========================================
+   VARIABLES
+   Colores, tipografias, espaciados, radios, sombra y ancho maximo
+   ========================================= */
+:root {
+    /* Colores */
+    --color-primario: #1e3a8a;
+    --color-primario-oscuro: #172554;
+    --color-fondo-suave: #dbeafe;
+    --color-fondo-pagina: #f8fafc;
+    --color-blanco: #ffffff;
+    --color-texto: #1f2937;
+    --color-texto-suave: #6b7280;
+    --color-borde: #e5e7eb;
+    --color-error: #dc2626;
+    --color-exito: #16a34a;
+
+    /* Tipografias */
+    --fuente-titulos: "Lora", serif;
+    --fuente-interfaz: "Inter", sans-serif;
+
+    /* Espaciados */
+    --espacio-1: 4px;
+    --espacio-2: 8px;
+    --espacio-3: 16px;
+    --espacio-4: 24px;
+    --espacio-5: 32px;
+    --espacio-6: 48px;
+
+    /* Radios */
+    --radio-chico: 4px;
+    --radio-medio: 8px;
+    --radio-redondo: 999px;
+
+    /* Sombra */
+    --sombra-suave: 0 2px 8px rgba(0, 0, 0, 0.08);
+
+    /* Ancho maximo */
+    --ancho-maximo: 1200px;
+}
+
+/* =========================================
+   RESET BASICO
+   Ajustes generales de todas las etiquetas
+   ========================================= */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body,
+h1, h2, h3, h4, h5, h6,
+p,
+ul,
+ol {
+    margin: 0;
+    padding: 0;
+}
+
+ul,
+ol {
+    list-style: none;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+button,
+input,
+select,
+textarea {
+    font-family: inherit;
+}
+
+/* =========================================
+   ESTILOS GLOBALES
+   Texto, titulos y cuerpo del contenido
+   ========================================= */
+body {
+    font-family: var(--fuente-interfaz);
+    font-size: 16px;
+    color: var(--color-texto);
+    background-color: var(--color-fondo-pagina);
+    line-height: 1.6;
+}
+
+h1, h2, h3, h4 {
+    font-family: var(--fuente-titulos);
+    font-weight: 700;
+    line-height: 1.25;
+}
+
+main {
+    min-height: 60vh;
+}
