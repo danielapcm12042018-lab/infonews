@@ -41,6 +41,30 @@ function leerCategoriaDeLaUrl() {
 }
 
 /**
+ * leerBusquedaDeLaUrl()
+ * Lee el parametro "buscar" de la URL, por ejemplo
+ * ?buscar=oro cuando escribimos algo en el buscador de la cabecera.
+ * Si hay texto, lo deja escrito en el buscador de la pagina.
+ */
+function leerBusquedaDeLaUrl() {
+    var textoUrl = new URLSearchParams(window.location.search).get("buscar");
+
+    // Si no hay nada en la URL, no buscamos por texto
+    if (textoUrl === null) {
+        return;
+    }
+
+    textoBusqueda = textoUrl;
+
+    // Escribimos el texto en el buscador de la pagina, si existe
+    var campoBuscar = document.getElementById("campo-buscar");
+
+    if (campoBuscar !== null) {
+        campoBuscar.value = textoUrl;
+    }
+}
+
+/**
  * obtenerNoticiasFiltradas()
  * Devuelve las noticias que cumple el filtro de categoria y, si el usuario
  * esta escribiendo en el buscador, tambien la busqueda por texto.
@@ -289,6 +313,7 @@ function activarEventos() {
 function init() {
     cargarDatos(rutaBase).then(function () {
         leerCategoriaDeLaUrl();
+        leerBusquedaDeLaUrl();
         mostrarFiltros();
         mostrarPagina();
         mostrarMasLeidos();

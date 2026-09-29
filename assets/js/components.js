@@ -21,9 +21,9 @@ function renderHeader(rutaBase, paginaActiva) {
                     <a href="${rutaBase}pages/contacto.html" class="${paginaActiva === "contacto" ? "activo" : ""}">Contacto</a>
                 </nav>
 
-                <!-- Buscador (aun sin funcionalidad) -->
-                <form class="buscador" action="#" method="get">
-                    <input type="search" name="buscar" placeholder="Buscar noticias...">
+                <!-- Buscador de la cabecera, la busqueda la conecta main.js -->
+                <form id="form-buscador" class="form-buscador buscador" role="search">
+                    <input type="search" class="buscador" id="buscador-header" name="buscar" placeholder="Buscar noticias...">
                 </form>
             </div>
         </header>

@@ -37,12 +37,52 @@ document.addEventListener("DOMContentLoaded", function () {
     renderHeader(rutaBase, paginaActiva);
     renderFooter(rutaBase);
 
+    // Activamos el buscador de la cabecera
+    activarBuscadorHeader();
+
     // 6. Marcamos los favoritos que ya estaban guardados
     marcarFavoritosGuardados();
 
     // 7. Activamos los botones de favorito y de compartir
     activarBotonesNoticias();
 });
+
+/**
+ * activarBuscadorHeader()
+ * Conecta el buscador de la cabecera.
+ * Al pulsar Intro, si hay algo escrito nos lleva a Noticias con
+ * ese texto en la URL, y si esta vacio, nos lleva a Noticias sin filtro.
+ */
+function activarBuscadorHeader() {
+    var formulario = document.getElementById("form-buscador");
+
+    // Si esta pagina no tiene buscador, no hacemos nada
+    if (formulario === null) {
+        return;
+    }
+
+    formulario.addEventListener("submit", function (event) {
+        // Evitamos que el navegador mande el formulario por su cuenta
+        event.preventDefault();
+
+        // Leemos el texto del buscador y le quitamos los espacios de los extremos
+        var campo = document.getElementById("buscador-header");
+        var texto = "";
+
+        if (campo !== null) {
+            texto = campo.value.trim();
+        }
+
+        // Sin texto, vamos directamente al listado de Noticias
+        if (texto === "") {
+            window.location.href = rutaBasePagina + "pages/noticias.html";
+            return;
+        }
+
+        // encodeURIComponent() deja el texto seguro dentro de la URL
+        window.location.href = rutaBasePagina + "pages/noticias.html?buscar=" + encodeURIComponent(texto);
+    });
+}
 
 /**
  * marcarFavoritosGuardados()
