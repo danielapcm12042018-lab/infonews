@@ -19,7 +19,83 @@
     <div id="app-header"></div>
 
     <main>
-        <h1>Inicio</h1>
+        <!-- 1. Barra de categorias (se llena desde home.js) -->
+        <div class="contenedor">
+            <nav class="barra-categorias" id="barra-categorias" aria-label="Categorías"></nav>
+        </div>
+
+        <!-- 2. Bienvenida -->
+        <div class="contenedor">
+            <section class="bienvenida">
+                <h1>Bienvenido a InfoNews</h1>
+                <p>Tu portal de noticias e información al día.</p>
+            </section>
+        </div>
+
+        <!-- 3. Portada: noticia principal + columna lateral -->
+        <div class="contenedor">
+            <section class="portada">
+                <article class="portada-principal" id="portada-principal"></article>
+
+                <aside class="portada-lateral">
+                    <!-- Lista de mas leidas (se llena desde home.js) -->
+                    <section class="caja-mas-leido">
+                        <h2 class="titulo-caja">Lo más leído</h2>
+                        <ol class="lista-mas-leidos" id="lista-mas-leidos"></ol>
+                    </section>
+
+                    <!-- Caja para apuntarse a la newsletter -->
+                    <section class="caja-newsletter">
+                        <h3>Newsletter Semanal</h3>
+                        <p>Recibe lo más relevante del periodismo independiente en tu bandeja de entrada.</p>
+                        <button class="btn btn-primario btn-ancho" type="button">Suscribirse ahora</button>
+                        <small>Únete a más de 50.000 lectores informados.</small>
+                    </section>
+                </aside>
+            </section>
+        </div>
+
+        <!-- 4. Destacados de hoy (se llena desde home.js) -->
+        <div class="contenedor">
+            <section class="seccion-noticias">
+                <div class="seccion-cabecera">
+                    <h2 class="titulo-seccion">Destacados de hoy</h2>
+                    <a class="ver-todo" href="pages/noticias.html">Ver todo ›</a>
+                </div>
+                <div class="grilla-3" id="destacados-hoy"></div>
+            </section>
+        </div>
+
+        <!-- 5. Ultimas noticias (se llena desde home.js) -->
+        <div class="contenedor">
+            <section class="seccion-noticias">
+                <div class="seccion-cabecera">
+                    <h2 class="titulo-seccion">Últimas noticias</h2>
+                    <a class="ver-todo" href="pages/noticias.html">Ver todo ›</a>
+                </div>
+                <div class="grilla-3" id="ultimas-noticias"></div>
+            </section>
+        </div>
+
+        <!-- 6. Banner para suscribirse a la newsletter -->
+        <div class="contenedor">
+            <section class="banner-suscripcion">
+                <h2>Periodismo de Profundidad Directo a Tu Bandeja</h2>
+                <p>Análisis exclusivos, reportajes de investigación y opinión crítica para entender el mundo actual. Sin publicidad intrusiva, solo periodismo puro.</p>
+                <div class="banner-botones">
+                    <a class="btn btn-blanco" href="pages/contacto.html">Empezar prueba gratuita</a>
+                    <a class="btn btn-contorno" href="pages/noticias.html">Saber más</a>
+                </div>
+            </section>
+        </div>
+
+        <!-- 7. Explora por categorias (se llena desde home.js) -->
+        <div class="contenedor">
+            <section class="seccion-categorias">
+                <h2 class="titulo-seccion">Explora por categorías</h2>
+                <div class="grilla-categorias" id="grilla-categorias"></div>
+            </section>
+        </div>
     </main>
 
     <!-- Pie de pagina comun, se rellena desde components.js -->

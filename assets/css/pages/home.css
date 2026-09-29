@@ -1,0 +1,382 @@
+/* =========================================
+   PAGINA HOME - PARTE 1
+   Bienvenida, barra de categorias, portada, barra lateral y responsive
+   ========================================= */
+
+/* =========================================
+   BIENVENIDA
+   Texto de saludo que aparece arriba de todo
+   ========================================= */
+.bienvenida {
+    text-align: center;
+    padding-top: var(--espacio-3);
+    padding-bottom: var(--espacio-3);
+    margin-bottom: var(--espacio-3);
+}
+
+.bienvenida h1 {
+    font-family: var(--fuente-titulos);
+    font-size: 1.5rem;
+    color: var(--color-primario);
+}
+
+.bienvenida p {
+    color: var(--color-texto-suave);
+    margin-top: var(--espacio-2);
+}
+
+/* =========================================
+   BARRA DE CATEGORIAS
+   Enlaces rapidos a cada seccion de noticias
+   ========================================= */
+.barra-categorias {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 28px;
+    border-bottom: 1px solid var(--color-borde);
+    padding-top: 14px;
+    padding-bottom: 14px;
+    margin-top: 0;
+    margin-bottom: var(--espacio-4);
+}
+
+.barra-categorias a {
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--color-texto-suave);
+    transition: color 0.2s ease;
+}
+
+.barra-categorias a:hover {
+    color: var(--color-primario);
+}
+
+/* =========================================
+   PORTADA
+   Noticia principal a la izquierda y barra lateral a la derecha
+   ========================================= */
+.portada {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: var(--espacio-5);
+    align-items: start;
+    margin-bottom: var(--espacio-6);
+}
+
+/* Contenedor de la imagen, para poner el badge encima */
+.portada-imagen {
+    position: relative;
+}
+
+.portada-imagen img {
+    width: 100%;
+    height: 420px;
+    object-fit: cover;
+    border-radius: var(--radio-medio);
+}
+
+.portada-imagen .badge {
+    position: absolute;
+    top: 16px;
+    left: 16px;
+}
+
+/* Titulo grande de la noticia principal */
+.portada-titulo {
+    font-family: var(--fuente-titulos);
+    font-size: 2.5rem;
+    font-weight: 700;
+    line-height: 1.15;
+    margin-top: var(--espacio-4);
+}
+
+.portada-titulo a:hover {
+    color: var(--color-primario);
+}
+
+/* Bajada de la noticia */
+.portada-subtitulo {
+    color: var(--color-texto-suave);
+    font-size: 1.1rem;
+    margin-top: var(--espacio-3);
+}
+
+/* Autor y fecha */
+.portada-meta {
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: var(--color-texto-suave);
+    margin-top: var(--espacio-3);
+}
+
+/* =========================================
+   BARRA LATERAL
+   Columna con "Lo mas leido" y la newsletter
+   ========================================= */
+.portada-lateral {
+    display: flex;
+    flex-direction: column;
+    gap: var(--espacio-4);
+}
+
+/* --- Caja de mas leidos --- */
+.caja-mas-leido {
+    background-color: var(--color-fondo-suave);
+    border-left: 4px solid var(--color-primario);
+    padding: var(--espacio-4);
+}
+
+.titulo-caja {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-family: var(--fuente-interfaz);
+    font-weight: 700;
+    margin-bottom: var(--espacio-3);
+}
+
+.lista-mas-leidos {
+    display: flex;
+    flex-direction: column;
+    gap: var(--espacio-3);
+}
+
+.mas-leido-item {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--espacio-3);
+}
+
+/* Numero de posicion: 01, 02, 03... */
+.mas-leido-posicion {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #93c5fd;
+    line-height: 1;
+}
+
+/* Categoria de la noticia */
+.mas-leido-categoria {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: var(--color-primario);
+}
+
+/* Titulo enlazado al detalle */
+.mas-leido-titulo {
+    font-family: var(--fuente-titulos);
+    font-size: 0.95rem;
+    font-weight: 600;
+}
+
+.mas-leido-titulo:hover {
+    color: var(--color-primario);
+}
+
+/* --- Caja de la newsletter --- */
+.caja-newsletter {
+    background-color: #eff6ff;
+    border: 1px solid #bfdbfe;
+    border-radius: var(--radio-chico);
+    padding: var(--espacio-4);
+}
+
+.caja-newsletter h3 {
+    font-family: var(--fuente-titulos);
+    font-size: 1.15rem;
+}
+
+.caja-newsletter p {
+    font-size: 0.85rem;
+    color: var(--color-texto-suave);
+    margin-top: var(--espacio-3);
+    margin-bottom: var(--espacio-3);
+}
+
+.caja-newsletter small {
+    display: block;
+    text-align: center;
+    font-size: 0.75rem;
+    color: var(--color-texto-suave);
+    margin-top: var(--espacio-3);
+}
+
+/* =========================================
+   RESPONSIVE
+   En movil la portada se apila y la imagen baja
+   ========================================= */
+@media (max-width: 768px) {
+    /* La portada pasa a una sola columna */
+    .portada {
+        grid-template-columns: 1fr;
+    }
+
+    /* El titulo se hace mas pequeno para que quepa */
+    .portada-titulo {
+        font-size: 1.8rem;
+    }
+
+    /* La imagen es mas baja en movil */
+    .portada-imagen img {
+        height: 240px;
+    }
+}
+
+/* =========================================
+   SECCIONES DE NOTICIAS
+   Cabecera con el titulo y el enlace "Ver todo"
+   ========================================= */
+.seccion-noticias {
+    margin-bottom: var(--espacio-6);
+}
+
+/* Fila con el titulo a la izquierda y "Ver todo" a la derecha */
+.seccion-cabecera {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid var(--color-primario);
+    padding-bottom: var(--espacio-2);
+    margin-bottom: var(--espacio-4);
+}
+
+.titulo-seccion {
+    font-family: var(--fuente-titulos);
+    font-size: 1.4rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.ver-todo {
+    color: var(--color-primario);
+    font-weight: 600;
+    font-size: 0.85rem;
+}
+
+/* =========================================
+   GRILLA DE 3 COLUMNAS
+   Reparte las noticias en tres columnas
+   ========================================= */
+.grilla-3 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--espacio-4);
+}
+
+/* =========================================
+   BANNER DE SUSCRIPCION
+   Franja azul para animarse a la newsletter
+   ========================================= */
+.banner-suscripcion {
+    background-color: var(--color-primario);
+    color: var(--color-blanco);
+    text-align: center;
+    padding-top: var(--espacio-6);
+    padding-bottom: var(--espacio-6);
+    padding-left: var(--espacio-4);
+    padding-right: var(--espacio-4);
+    margin-bottom: var(--espacio-6);
+}
+
+.banner-suscripcion h2 {
+    font-family: var(--fuente-titulos);
+    font-size: 2rem;
+    color: var(--color-blanco);
+}
+
+.banner-suscripcion p {
+    max-width: 640px;
+    margin-top: var(--espacio-3);
+    margin-right: auto;
+    margin-bottom: var(--espacio-4);
+    margin-left: auto;
+    color: #dbeafe;
+    font-size: 1rem;
+}
+
+.banner-botones {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: var(--espacio-3);
+}
+
+/* =========================================
+   EXPLORA POR CATEGORIAS
+   Tarjetas con cada categoria y su numero de noticias
+   ========================================= */
+.seccion-categorias .titulo-seccion {
+    border-bottom: 2px solid var(--color-primario);
+    padding-bottom: var(--espacio-2);
+    margin-bottom: var(--espacio-4);
+}
+
+.grilla-categorias {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: var(--espacio-3);
+}
+
+.card-categoria {
+    display: block;
+    background-color: var(--color-blanco);
+    border: 1px solid var(--color-borde);
+    padding: 22px var(--espacio-2);
+    text-align: center;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card-categoria:hover {
+    border-color: var(--color-primario);
+    box-shadow: var(--sombra-suave);
+}
+
+.card-categoria h3 {
+    font-family: var(--fuente-interfaz);
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.card-categoria p {
+    font-size: 0.7rem;
+    color: var(--color-texto-suave);
+    margin-top: 6px;
+}
+
+/* =========================================
+   RESPONSIVE
+   Las grillas se van reduciendo de columnas segun la pantalla
+   ========================================= */
+@media (max-width: 900px) {
+    /* Las noticias pasan a dos columnas y las categorias a tres */
+    .grilla-3 {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .grilla-categorias {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    /* Las noticias a una sola columna y las categorias a dos */
+    .grilla-3 {
+        grid-template-columns: 1fr;
+    }
+
+    .grilla-categorias {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    /* El titulo del banner se hace mas pequeno */
+    .banner-suscripcion h2 {
+        font-size: 1.5rem;
+    }
+}

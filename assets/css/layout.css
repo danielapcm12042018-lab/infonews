@@ -1,0 +1,191 @@
+/* =========================================
+   LAYOUT
+   Contenedor, cabecera comun, pie comun y ajustes para movil
+   ========================================= */
+
+/* =========================================
+   CONTENEDOR
+   Centra el contenido y le da los margenes laterales
+   ========================================= */
+.contenedor {
+    max-width: var(--ancho-maximo);
+    margin: 0 auto;
+    padding-left: var(--espacio-3);
+    padding-right: var(--espacio-3);
+}
+
+/* =========================================
+   HEADER
+   Barra fija arriba con logo, menu y buscador
+   ========================================= */
+.header {
+    background-color: var(--color-blanco);
+    border-bottom: 1px solid var(--color-borde);
+
+    /* Se queda pegado arriba al hacer scroll */
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+/* Fila unica: logo a la izquierda, menu al centro, buscador a la derecha */
+.header-contenido {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--espacio-4);
+    padding-top: var(--espacio-3);
+    padding-bottom: var(--espacio-3);
+}
+
+/* --- Logo --- */
+.logo {
+    display: flex;
+    align-items: center;
+    gap: var(--espacio-2);
+    font-weight: 700;
+    font-size: 1.25rem;
+    color: var(--color-texto);
+}
+
+/* Circulo azul antes del texto */
+.logo::before {
+    content: "";
+    display: inline-block;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background-color: var(--color-primario);
+}
+
+/* --- Menu --- */
+.menu {
+    display: flex;
+    align-items: center;
+    gap: var(--espacio-4);
+}
+
+.menu a {
+    font-size: 0.9rem;
+    color: var(--color-texto-suave);
+    transition: color 0.2s ease;
+}
+
+.menu a:hover {
+    color: var(--color-primario);
+}
+
+/* Enlace de la pagina en la que estamos */
+.menu a.activo {
+    color: var(--color-primario);
+    border-bottom: 2px solid var(--color-primario);
+}
+
+/* --- Buscador --- */
+.buscador input {
+    width: 260px;
+    padding: 8px 12px;
+    border: 1px solid var(--color-borde);
+    border-radius: var(--radio-medio);
+    background-color: #f0f9ff;
+    font-size: 0.85rem;
+}
+
+/* =========================================
+   FOOTER
+   Copyright, enlaces legales y redes sociales en una sola fila
+   ========================================= */
+.footer {
+    background-color: #e0f2fe;
+    margin-top: var(--espacio-6);
+    padding-top: var(--espacio-4);
+    padding-bottom: var(--espacio-4);
+    border-top: 1px solid var(--color-borde);
+}
+
+/* Copyright, enlaces legales y redes en una sola fila */
+.footer-fila {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--espacio-4);
+    flex-wrap: wrap;
+}
+
+/* Copyright */
+.footer-copy {
+    font-size: 0.8rem;
+    color: var(--color-texto-suave);
+}
+
+/* Enlaces legales */
+.footer-legal {
+    display: flex;
+    gap: var(--espacio-4);
+    flex-wrap: wrap;
+}
+
+.footer-legal a {
+    font-size: 0.8rem;
+    color: var(--color-texto);
+    transition: color 0.2s ease;
+}
+
+.footer-legal a:hover {
+    color: var(--color-primario);
+}
+
+/* Iconos de redes, en circulos */
+.footer-redes {
+    display: flex;
+    gap: var(--espacio-2);
+}
+
+.footer-redes a {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background-color: #3b82f6;
+    color: var(--color-blanco);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.2s ease;
+}
+
+.footer-redes a:hover {
+    background-color: var(--color-primario);
+}
+
+/* =========================================
+   RESPONSIVE
+   En movil el header se apila y el footer pasa a una columna
+   ========================================= */
+@media (max-width: 768px) {
+    /* El header pasa a columna */
+    .header-contenido {
+        flex-direction: column;
+    }
+
+    /* El menu puede pasar a dos lineas y queda centrado */
+    .menu {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    /* El buscador ocupa todo el ancho */
+    .buscador input {
+        width: 100%;
+    }
+
+    /* El footer se apila y todo queda centrado */
+    .footer-fila {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .footer-legal,
+    .footer-redes {
+        justify-content: center;
+    }
+}

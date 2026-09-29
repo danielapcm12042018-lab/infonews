@@ -1,0 +1,291 @@
+/* =========================================
+   COMPONENTES
+   Botones, badges y las tres tarjetas de noticia
+   ========================================= */
+
+/* =========================================
+   BOTONES
+   Botones de accion: primario, blanco y de contorno
+   ========================================= */
+.btn {
+    display: inline-block;
+    padding: 12px 24px;
+    border: 1px solid transparent;
+    border-radius: var(--radio-chico);
+    font-family: var(--fuente-interfaz);
+    font-weight: 600;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+/* Boton azul, el principal de la web */
+.btn-primario {
+    background-color: var(--color-primario);
+    color: var(--color-blanco);
+}
+
+.btn-primario:hover {
+    background-color: var(--color-primario-oscuro);
+}
+
+/* Boton blanco, se usa sobre fondos de color */
+.btn-blanco {
+    background-color: var(--color-blanco);
+    color: var(--color-primario);
+}
+
+.btn-blanco:hover {
+    background-color: var(--color-fondo-suave);
+}
+
+/* Boton de contorno blanco, para fondos oscuros */
+.btn-contorno {
+    background-color: transparent;
+    color: var(--color-blanco);
+    border: 1px solid var(--color-blanco);
+}
+
+.btn-contorno:hover {
+    background-color: rgba(255, 255, 255, 0.15);
+}
+
+/* Boton que ocupa todo el ancho de su caja */
+.btn-ancho {
+    width: 100%;
+}
+
+/* =========================================
+   BADGE
+   Etiqueta pequena con la categoria, va sobre la imagen
+   ========================================= */
+.badge {
+    background-color: var(--color-primario);
+    color: var(--color-blanco);
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border-radius: var(--radio-chico);
+    letter-spacing: 0.5px;
+}
+
+/* =========================================
+   CARD DE NOTICIA (.card)
+   Tarjeta grande del listado de noticias
+   ========================================= */
+.card {
+    background-color: var(--color-fondo-suave);
+    border: 1px solid #bfdbfe;
+    border-radius: var(--radio-medio);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+/* La imagen y el badge viven en este contenedor */
+.card-imagen {
+    position: relative;
+}
+
+.card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+/* El badge va pegado a la esquina de la imagen */
+.card-imagen .badge {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+}
+
+/* El cuerpo crece para que el pie quede siempre abajo */
+.card-cuerpo {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+/* Autor y fecha: no se muestran en la card del listado */
+.card-meta {
+    display: none;
+}
+
+/* Titulo */
+.card h3 {
+    font-family: var(--fuente-titulos);
+    font-size: 1.1rem;
+    font-weight: 600;
+    padding-left: var(--espacio-4);
+    padding-right: var(--espacio-4);
+    margin-top: var(--espacio-3);
+}
+
+.card h3 a:hover {
+    color: var(--color-primario);
+}
+
+/* Descripcion */
+.card p {
+    color: var(--color-texto-suave);
+    font-size: 0.9rem;
+    padding-left: var(--espacio-4);
+    padding-right: var(--espacio-4);
+    margin-top: var(--espacio-2);
+}
+
+/* Pie: boton de favorito a la izquierda y "Leer mas" a la derecha */
+.card-pie {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: auto;
+    padding: var(--espacio-3) var(--espacio-4);
+    border-top: 1px solid #bfdbfe;
+}
+
+/* Botones de la izquierda: favorito y compartir */
+.card-acciones {
+    display: flex;
+    align-items: center;
+    gap: var(--espacio-3);
+}
+
+.btn-favorito,
+.btn-compartir {
+    display: flex;
+    align-items: center;
+    background-color: transparent;
+    border: none;
+    padding: 0;
+    color: var(--color-texto-suave);
+    cursor: pointer;
+    opacity: 1;
+    transition: color 0.2s ease;
+}
+
+.btn-favorito:hover,
+.btn-compartir:hover {
+    color: var(--color-primario);
+}
+
+/* Cuando la noticia ya esta en favoritos, el marcador se rellena */
+.btn-favorito.activo {
+    color: var(--color-primario);
+}
+
+.btn-favorito.activo svg {
+    fill: currentColor;
+}
+
+/* Enlace "Leer mas" */
+.leer-mas {
+    color: var(--color-primario);
+    font-weight: 600;
+    font-size: 0.85rem;
+}
+
+/* =========================================
+   CARD DESTACADO (.card-destacado)
+   Tarjeta de "Destacados de hoy", sin fondo ni borde
+   ========================================= */
+.card-destacado {
+    background-color: transparent;
+    border: none;
+    border-radius: var(--radio-medio);
+}
+
+/* Contenedor de la imagen, para colocar el badge encima */
+.card-destacado-imagen {
+    position: relative;
+}
+
+.card-destacado img {
+    width: 100%;
+    height: 230px;
+    object-fit: cover;
+    border-radius: var(--radio-medio);
+}
+
+.card-destacado-imagen .badge {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+}
+
+/* Titulo */
+.card-destacado h3 {
+    font-family: var(--fuente-titulos);
+    font-size: 1.05rem;
+    font-weight: 500;
+    margin-top: var(--espacio-3);
+}
+
+.card-destacado h3 a:hover {
+    color: var(--color-primario);
+}
+
+/* Horas desde que se publico */
+.card-hora {
+    color: var(--color-texto-suave);
+    font-size: 0.8rem;
+    margin-top: var(--espacio-2);
+}
+
+/* =========================================
+   CARD SIMPLE (.card-simple)
+   Version pequena para "Relacionadas" y "Mas noticias"
+   ========================================= */
+.card-simple {
+    background-color: transparent;
+    border: none;
+    border-radius: var(--radio-medio);
+}
+
+.card-simple-imagen {
+    position: relative;
+}
+
+.card-simple img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: var(--radio-medio);
+}
+
+.card-simple-imagen .badge {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+}
+
+.card-simple h3 {
+    font-family: var(--fuente-titulos);
+    font-size: 0.95rem;
+    font-weight: 500;
+    margin-top: var(--espacio-3);
+}
+
+.card-simple h3 a:hover {
+    color: var(--color-primario);
+}
+
+.card-simple .card-simple-fecha {
+    color: var(--color-texto-suave);
+    font-size: 0.8rem;
+    margin-top: var(--espacio-2);
+}
+
+/* =========================================
+   AVISO SIN RESULTADOS
+   Se muestra cuando una busqueda no devuelve noticias
+   ========================================= */
+.sin-resultados {
+    color: var(--color-texto-suave);
+    padding: var(--espacio-5);
+    text-align: center;
+}
