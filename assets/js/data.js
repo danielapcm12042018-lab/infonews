@@ -41,15 +41,34 @@ function cargarDatos(rutaBase) {
 }
 
 /**
- * obtenerNoticias()
- * Devuelve el array de noticias.
+ * obtenerNoticiasDelJson()
+ * Devuelve las noticias que vienen del archivo JSON, sin quitar ni añadir nada.
  * Si el archivo aun no se ha cargado devuelve un array vacio.
  */
-function obtenerNoticias() {
+function obtenerNoticiasDelJson() {
     if (datosNoticias === null) {
         return [];
     }
     return datosNoticias.noticias;
+}
+
+/**
+ * obtenerNoticias()
+ * Devuelve el array de noticias que se debe mostrar en la pagina.
+ * Une las noticias creadas por el usuario con las del JSON
+ * y quita las que el usuario haya eliminado.
+ * Si no hay datos devuelve un array vacio.
+ */
+function obtenerNoticias() {
+    // Primero las creadas por el usuario, despues las del JSON
+    var todas = obtenerNoticiasCreadas().concat(obtenerNoticiasDelJson());
+
+    // Los ids eliminados no se muestran
+    var idsEliminados = obtenerIdsEliminados();
+
+    return todas.filter(function (noticia) {
+        return idsEliminados.includes(noticia.id) === false;
+    });
 }
 
 /**
@@ -200,4 +219,32 @@ function obtenerUltimas(cantidad) {
     });
 
     return copia.slice(0, cantidad);
+}
+
+/**
+ * generarNuevoId()
+ * Devuelve un id nuevo que no choque con ninguno existente.
+ * Mira los ids del JSON y los de las noticias creadas y devuelve el mayor + 1.
+ * Los eliminados se ignoran, asi no se reutilizan sus ids.
+ */
+function generarNuevoId() {
+    var delJson = obtenerNoticiasDelJson();
+    var creadas = obtenerNoticiasCreadas();
+
+    // Empezamos en cero, asi con la lista vacia el primer id es el uno
+    var mayor = 0;
+
+    for (var i = 0; i < delJson.length; i++) {
+        if (delJson[i].id > mayor) {
+            mayor = delJson[i].id;
+        }
+    }
+
+    for (var j = 0; j < creadas.length; j++) {
+        if (creadas[j].id > mayor) {
+            mayor = creadas[j].id;
+        }
+    }
+
+    return mayor + 1;
 }

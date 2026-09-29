@@ -36,9 +36,34 @@ function mostrarBarraCategorias() {
 }
 
 /**
+ * obtenerNoticiaPortada()
+ * Devuelve la noticia que va en la portada.
+ * Es la primera destacada; si no hay destacadas, la ultima publicada.
+ * Si tampoco hay noticias, devuelve null.
+ */
+function obtenerNoticiaPortada() {
+    var destacadas = obtenerDestacadas();
+
+    // Si hay destacadas, la portada es la primera de la lista
+    if (destacadas.length > 0) {
+        return destacadas[0];
+    }
+
+    // Si no hay destacadas, usamos la noticia mas reciente
+    var ultimas = obtenerUltimas(1);
+
+    if (ultimas.length > 0) {
+        return ultimas[0];
+    }
+
+    // No hay ninguna noticia que mostrar
+    return null;
+}
+
+/**
  * mostrarPortada()
- * Muestra en la portada la noticia con id 2, que es la que abre al entrar.
- * Si esa noticia no existe, no hace nada.
+ * Muestra en la portada la noticia que decide obtenerNoticiaPortada().
+ * Si no hay ninguna noticia, no hace nada.
  */
 function mostrarPortada() {
     var contenedor = document.getElementById("portada-principal");
@@ -47,10 +72,10 @@ function mostrarPortada() {
         return;
     }
 
-    // Buscamos la noticia principal por su id
-    var noticia = buscarNoticiaPorId(2);
+    // La noticia principal la elige obtenerNoticiaPortada()
+    var noticia = obtenerNoticiaPortada();
 
-    // Si no la encontramos, dejamos el contenedor vacio
+    // Si no hay noticia, dejamos el contenedor vacio
     if (noticia === null) {
         return;
     }
@@ -129,8 +154,8 @@ function crearCardDestacado(noticia, horas) {
 /**
  * mostrarDestacados()
  * Muestra las noticias destacadas en "Destacados de hoy".
- * Quitamos la noticia con id 2 porque esa ya esta en la portada,
- * y nos quedamos solo con las 3 primeras.
+ * Quitamos la noticia de portada porque esa ya sale arriba,
+ * nos quedamos con 3 y, si faltan, completamos con las ultimas publicadas.
  */
 function mostrarDestacados() {
     var contenedor = document.getElementById("destacados-hoy");
@@ -139,13 +164,40 @@ function mostrarDestacados() {
         return;
     }
 
+    // La noticia de portada no se debe repetir en esta seccion
+    var portada = obtenerNoticiaPortada();
+    var idPortada = portada === null ? null : portada.id;
+
     // Todas las destacadas menos la que ya sale en la portada
     var destacadas = obtenerDestacadas().filter(function (noticia) {
-        return noticia.id !== 2;
+        return noticia.id !== idPortada;
     });
 
     // Nos quedamos con las 3 primeras
     destacadas = destacadas.slice(0, 3);
+
+    // Si no llegamos a 3, completamos con las ultimas publicadas
+    if (destacadas.length < 3) {
+        var candidatas = obtenerUltimas(12);
+
+        // Ids que ya tenemos, para no repetir ninguna noticia
+        var idsIncluidos = [];
+        for (var k = 0; k < destacadas.length; k++) {
+            idsIncluidos.push(destacadas[k].id);
+        }
+
+        for (var j = 0; j < candidatas.length && destacadas.length < 3; j++) {
+            var candidata = candidatas[j];
+
+            // No repetimos la portada ni las que ya estan dentro
+            if (candidata.id === idPortada || idsIncluidos.includes(candidata.id)) {
+                continue;
+            }
+
+            destacadas.push(candidata);
+            idsIncluidos.push(candidata.id);
+        }
+    }
 
     // Horas que ponemos a cada tarjeta segun su posicion
     var horas = [2, 4, 6];

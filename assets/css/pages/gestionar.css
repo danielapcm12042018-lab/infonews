@@ -1,0 +1,308 @@
+/* =========================================
+   ATRIBUTO HIDDEN
+   Los botones usan la clase .btn, que pone display: inline-block,
+   y eso anularia el atributo hidden. Con esta regla hidden manda.
+   ========================================= */
+[hidden] {
+    display: none !important;
+}
+
+/* =========================================
+   CABECERA
+   Migas de pan, titulo y boton de restablecer
+   ========================================= */
+.cabecera-pagina {
+    background-color: #f1f5f9;
+    border-bottom: 1px solid var(--color-borde);
+    padding-top: var(--espacio-4);
+    padding-bottom: var(--espacio-4);
+}
+
+/* Las migas de pan son una fila de enlaces y separadores */
+.migas {
+    display: flex;
+    gap: var(--espacio-2);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    color: var(--color-texto-suave);
+    margin-bottom: var(--espacio-3);
+}
+
+.migas a:hover {
+    color: var(--color-primario);
+}
+
+/* El titulo a la izquierda y el boton a la derecha */
+.cabecera-fila {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: var(--espacio-4);
+    flex-wrap: wrap;
+}
+
+.cabecera-fila h1 {
+    font-size: 3rem;
+    font-weight: 700;
+}
+
+.cabecera-fila p {
+    max-width: 520px;
+    color: var(--color-texto-suave);
+    margin-top: var(--espacio-2);
+}
+
+/* Boton con solo el borde, para que no compita con el boton principal */
+.btn-contorno-oscuro {
+    background-color: transparent;
+    color: var(--color-primario);
+    border: 1px solid var(--color-primario);
+}
+
+.btn-contorno-oscuro:hover {
+    background-color: var(--color-primario);
+    color: var(--color-blanco);
+}
+
+/* =========================================
+   LAYOUT
+   Formulario a la izquierda y listado a la derecha
+   ========================================= */
+.gestionar-layout {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--espacio-5);
+    align-items: start;
+    padding-top: var(--espacio-5);
+    padding-bottom: var(--espacio-5);
+}
+
+.gestionar-formulario h2,
+.gestionar-lista h2 {
+    font-size: 1.6rem;
+    margin-bottom: var(--espacio-3);
+}
+
+/* =========================================
+   FORMULARIO
+   Caja azul con los campos, los errores y el aviso de exito
+   ========================================= */
+.gestionar-formulario {
+    background-color: var(--color-fondo-suave);
+    border: 1px solid #bfdbfe;
+    padding: var(--espacio-5);
+}
+
+#formulario-noticia {
+    display: grid;
+    gap: var(--espacio-3);
+}
+
+.campo-grupo {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+/* Categoria y autor van en la misma fila */
+.campo-fila {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--espacio-3);
+}
+
+.campo-grupo label {
+    font-size: 0.75rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--color-texto);
+}
+
+.campo-grupo input,
+.campo-grupo select,
+.campo-grupo textarea {
+    width: 100%;
+    padding: 12px 14px;
+    border: 1px solid var(--color-borde);
+    background-color: var(--color-blanco);
+    font-size: 0.9rem;
+    font-family: inherit;
+}
+
+/* Cuando el usuario pincha en un campo, se resalta el borde */
+.campo-grupo input:focus,
+.campo-grupo select:focus,
+.campo-grupo textarea:focus {
+    border-color: var(--color-primario);
+    outline: none;
+}
+
+.campo-grupo textarea {
+    resize: vertical;
+}
+
+/* El campo se pone en rojo cuando tiene un error */
+.campo-grupo input.campo-error,
+.campo-grupo select.campo-error,
+.campo-grupo textarea.campo-error {
+    border: 1px solid var(--color-error);
+}
+
+.error-texto {
+    font-size: 0.75rem;
+    color: var(--color-error);
+    min-height: 1em;
+}
+
+/* La casilla de destacada va en horizontal y sin mayusculas */
+.campo-check {
+    display: flex;
+    align-items: center;
+    gap: var(--espacio-2);
+    font-size: 0.85rem;
+    text-transform: none;
+    cursor: pointer;
+}
+
+.campo-check input {
+    width: auto;
+}
+
+/* Aviso verde que aparece cuando la noticia se publica bien */
+.mensaje-exito {
+    background-color: #dcfce7;
+    border: 1px solid var(--color-exito);
+    color: #166534;
+    padding: var(--espacio-3) var(--espacio-4);
+    margin-bottom: var(--espacio-4);
+}
+
+.mensaje-exito strong {
+    display: block;
+}
+
+.mensaje-exito p {
+    font-size: 0.85rem;
+    margin-top: 4px;
+}
+
+/* =========================================
+   LISTA
+   Miniatura, datos y boton de eliminar de cada noticia
+   ========================================= */
+.gestionar-contador {
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--color-texto-suave);
+    margin-bottom: var(--espacio-3);
+}
+
+/* Con scroll propio para no alargar la pagina */
+.lista-gestion {
+    display: flex;
+    flex-direction: column;
+    gap: var(--espacio-3);
+    max-height: 720px;
+    overflow-y: auto;
+    padding-right: var(--espacio-2);
+}
+
+.item-gestion {
+    display: flex;
+    align-items: center;
+    gap: var(--espacio-3);
+    background-color: var(--color-blanco);
+    border: 1px solid var(--color-borde);
+    padding: var(--espacio-3);
+}
+
+.item-gestion img {
+    width: 96px;
+    height: 72px;
+    object-fit: cover;
+    flex-shrink: 0;
+}
+
+/* min-width 0 deja que el titulo se recorte en vez de romper la fila */
+.item-gestion-texto {
+    flex: 1;
+    min-width: 0;
+}
+
+.item-gestion-cat {
+    font-size: 0.65rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: var(--color-primario);
+}
+
+.item-gestion h3 {
+    font-family: var(--fuente-titulos);
+    font-size: 0.95rem;
+    font-weight: 600;
+    margin-top: 2px;
+    margin-bottom: 2px;
+}
+
+.item-gestion h3 a:hover {
+    color: var(--color-primario);
+}
+
+.item-gestion-meta {
+    font-size: 0.75rem;
+    color: var(--color-texto-suave);
+}
+
+/* Boton de borrar, con el color de error */
+.btn-eliminar {
+    background-color: transparent;
+    color: var(--color-error);
+    border: 1px solid var(--color-error);
+    padding: 6px 12px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    cursor: pointer;
+    flex-shrink: 0;
+}
+
+.btn-eliminar:hover {
+    background-color: var(--color-error);
+    color: var(--color-blanco);
+}
+
+.sin-resultados {
+    color: var(--color-texto-suave);
+    padding: var(--espacio-5);
+    text-align: center;
+}
+
+/* =========================================
+   RESPONSIVE
+   En tablet se apila todo y en movil la lista se reparten en varias lineas
+   ========================================= */
+@media (max-width: 900px) {
+    .gestionar-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .lista-gestion {
+        max-height: none;
+    }
+}
+
+@media (max-width: 600px) {
+    .cabecera-fila h1 {
+        font-size: 2rem;
+    }
+
+    .campo-fila {
+        grid-template-columns: 1fr;
+    }
+
+    .item-gestion {
+        flex-wrap: wrap;
+    }
+}

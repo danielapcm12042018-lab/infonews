@@ -18,9 +18,109 @@
     <!-- Cabecera comun, se rellena desde components.js -->
     <div id="app-header"></div>
 
-    <main>
-        <h1>Gestionar noticias</h1>
-    </main>
+      <main>
+          <!-- =========================================
+               1. CABECERA DE LA PAGINA
+               Migas de pan, titulo y boton de restablecer
+               ========================================= -->
+          <section class="cabecera-pagina">
+              <div class="contenedor">
+                  <nav class="migas" aria-label="Migas de pan">
+                      <a href="../index.html">Inicio</a>
+                      <span>›</span>
+                      <span>Gestionar</span>
+                  </nav>
+
+                  <div class="cabecera-fila">
+                      <div>
+                          <h1>Gestionar noticias</h1>
+                          <p>Crea nuevas noticias o elimina las que ya no quieras mostrar.</p>
+                      </div>
+
+                      <button class="btn btn-contorno-oscuro" id="btn-restablecer" type="button">Restablecer noticias</button>
+                  </div>
+              </div>
+          </section>
+
+          <!-- =========================================
+               2. CONTENIDO
+               A la izquierda el formulario para crear,
+               a la derecha las noticias ya publicadas
+               ========================================= -->
+          <div class="contenedor gestionar-layout">
+              <!-- 2.a Formulario de creacion -->
+              <section class="gestionar-formulario">
+                  <h2>Crear noticia</h2>
+
+                  <!-- Aviso de exito, lo muestra gestionar.js tras publicar -->
+                  <div class="mensaje-exito" id="mensaje-exito" hidden>
+                      <strong>¡Noticia creada!</strong>
+                      <p>Ya puedes verla en el listado de noticias.</p>
+                  </div>
+
+                  <!-- novalidate: los mensajes de error los pone nuestro JavaScript -->
+                  <form id="formulario-noticia" novalidate>
+                      <div class="campo-grupo">
+                          <label for="titulo">Título</label>
+                          <input type="text" id="titulo" name="titulo" placeholder="Título de la noticia">
+                          <span class="error-texto" id="error-titulo"></span>
+                      </div>
+
+                      <div class="campo-grupo">
+                          <label for="subtitulo">Subtítulo</label>
+                          <input type="text" id="subtitulo" name="subtitulo" placeholder="Una frase que resuma la noticia">
+                          <span class="error-texto" id="error-subtitulo"></span>
+                      </div>
+
+                      <!-- Categoria y autor van en la misma fila -->
+                      <div class="campo-fila">
+                          <div class="campo-grupo">
+                              <label for="categoria">Categoría</label>
+                              <select id="categoria" name="categoria">
+                                  <option value="">Selecciona una categoría</option>
+                              </select>
+                              <span class="error-texto" id="error-categoria"></span>
+                          </div>
+
+                          <div class="campo-grupo">
+                              <label for="autor">Autor</label>
+                              <input type="text" id="autor" name="autor" placeholder="Ej. Ana López">
+                              <span class="error-texto" id="error-autor"></span>
+                          </div>
+                      </div>
+
+                      <div class="campo-grupo">
+                          <label for="imagen">Imagen</label>
+                          <select id="imagen" name="imagen">
+                              <option value="">Selecciona una imagen</option>
+                          </select>
+                          <span class="error-texto" id="error-imagen"></span>
+                      </div>
+
+                      <div class="campo-grupo">
+                          <label for="contenido">Contenido</label>
+                          <textarea id="contenido" name="contenido" rows="8" placeholder="Escribe el texto de la noticia. Separa los párrafos con una línea en blanco."></textarea>
+                          <span class="error-texto" id="error-contenido"></span>
+                      </div>
+
+                      <!-- Casilla de destacada, no lleva mensaje de error -->
+                      <label class="campo-check">
+                          <input type="checkbox" id="destacada" name="destacada">
+                          Marcar como destacada
+                      </label>
+
+                      <button class="btn btn-primario btn-ancho" type="submit">Publicar noticia</button>
+                  </form>
+              </section>
+
+              <!-- 2.b Listado de noticias, lo llena gestionar.js -->
+              <section class="gestionar-lista">
+                  <h2>Noticias publicadas</h2>
+                  <p class="gestionar-contador" id="gestionar-contador"></p>
+                  <div class="lista-gestion" id="lista-gestion"></div>
+              </section>
+          </div>
+      </main>
 
     <!-- Pie de pagina comun, se rellena desde components.js -->
     <div id="app-footer"></div>

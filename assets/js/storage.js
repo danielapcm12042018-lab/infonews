@@ -8,6 +8,10 @@
 // Nombre de la clave donde se guardan los ids
 const claveFavoritos = "infonews-favoritos";
 
+// Claves para las noticias que crea el usuario y para las que elimina
+const claveNoticiasCreadas = "infonews-noticias-creadas";
+const claveNoticiasEliminadas = "infonews-noticias-eliminadas";
+
 /**
  * obtenerFavoritos()
  * Devuelve el array de ids guardados.
@@ -117,4 +121,135 @@ function alternarFavorito(id) {
  */
 function contarFavoritos() {
     return obtenerFavoritos().length;
+}
+
+/**
+ * obtenerNoticiasCreadas()
+ * Devuelve la lista de noticias que el usuario ha creado.
+ * Si todavia no hay nada guardado, o si el texto esta dañado,
+ * devuelve un array vacio.
+ */
+function obtenerNoticiasCreadas() {
+    try {
+        // Leemos el texto guardado con la clave
+        var texto = localStorage.getItem(claveNoticiasCreadas);
+
+        // Si no hay nada, no hay noticias creadas todavia
+        if (texto === null) {
+            return [];
+        }
+
+        // El texto guardado es un array en formato JSON
+        return JSON.parse(texto);
+    } catch (error) {
+        console.error("No se pudieron leer las noticias creadas: " + error.message);
+        return [];
+    }
+}
+
+/**
+ * guardarNoticiaCreada(noticia)
+ * Guarda una noticia nueva al principio de la lista de creadas.
+ * Asi la ultima noticia creada aparece la primera.
+ */
+function guardarNoticiaCreada(noticia) {
+    var lista = obtenerNoticiasCreadas();
+
+    // unshift() pone la noticia al inicio del array
+    lista.unshift(noticia);
+
+    try {
+        localStorage.setItem(claveNoticiasCreadas, JSON.stringify(lista));
+    } catch (error) {
+        console.error("No se pudo guardar la noticia creada: " + error.message);
+    }
+}
+
+/**
+ * obtenerIdsEliminados()
+ * Devuelve los ids de las noticias del JSON que el usuario ha eliminado.
+ * Siempre son numeros. Si no hay nada guardado devuelve un array vacio.
+ */
+function obtenerIdsEliminados() {
+    try {
+        var texto = localStorage.getItem(claveNoticiasEliminadas);
+
+        if (texto === null) {
+            return [];
+        }
+
+        var lista = JSON.parse(texto);
+        var numeros = [];
+
+        // Nos aseguramos de que todos los ids sean numeros
+        for (var i = 0; i < lista.length; i++) {
+            numeros.push(Number(lista[i]));
+        }
+
+        return numeros;
+    } catch (error) {
+        console.error("No se pudieron leer las noticias eliminadas: " + error.message);
+        return [];
+    }
+}
+
+/**
+ * eliminarNoticia(id)
+ * Elimina una noticia.
+ * Si era una noticia creada por el usuario, se borra de esa lista.
+ * Si era una noticia del JSON, se apunta su id en la lista de eliminadas.
+ * En los dos casos se quita tambien de favoritos.
+ */
+function eliminarNoticia(id) {
+    // Los ids siempre se manejan como numeros
+    var idNumero = Number(id);
+    var creadas = obtenerNoticiasCreadas();
+
+    // some() nos dice si hay alguna noticia creada con ese id
+    var estaCreada = creadas.some(function (noticia) {
+        return noticia.id === idNumero;
+    });
+
+    if (estaCreada) {
+        // Es una noticia creada: guardamos la lista sin ella
+        var creadasRestantes = creadas.filter(function (noticia) {
+            return noticia.id !== idNumero;
+        });
+
+        try {
+            localStorage.setItem(claveNoticiasCreadas, JSON.stringify(creadasRestantes));
+        } catch (error) {
+            console.error("No se pudieron guardar las noticias creadas: " + error.message);
+        }
+    } else {
+        // Es una noticia del JSON: apuntamos su id, sin repetirlo
+        var eliminadas = obtenerIdsEliminados();
+
+        if (eliminadas.includes(idNumero) === false) {
+            eliminadas.push(idNumero);
+        }
+
+        try {
+            localStorage.setItem(claveNoticiasEliminadas, JSON.stringify(eliminadas));
+        } catch (error) {
+            console.error("No se pudieron guardar las noticias eliminadas: " + error.message);
+        }
+    }
+
+    // Pase lo que pase, la noticia deja de ser favorita
+    quitarFavorito(idNumero);
+}
+
+/**
+ * restablecerNoticias()
+ * Borra las noticias creadas y las eliminadas, para volver a ver
+ * el listado original del JSON. Los favoritos no se tocan.
+ */
+function restablecerNoticias() {
+    try {
+        localStorage.removeItem(claveNoticiasCreadas);
+        localStorage.removeItem(claveNoticiasEliminadas);
+    } catch (error) {
+        console.error("No se pudieron restablecer las noticias: " + error.message);
+    }
 }
