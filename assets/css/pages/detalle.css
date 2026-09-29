@@ -1,0 +1,554 @@
+/* =========================================
+   NAVEGACION SUPERIOR
+   Migas de pan y enlace para volver
+   ========================================= */
+.detalle-nav {
+    padding-top: var(--espacio-3);
+    padding-bottom: var(--espacio-3);
+}
+
+.migas {
+    display: flex;
+    gap: var(--espacio-2);
+    font-size: 0.8rem;
+    color: var(--color-texto-suave);
+}
+
+.migas a:hover {
+    color: var(--color-primario);
+}
+
+/* La categoria actual se ve mas destacada que el resto */
+.migas #miga-categoria {
+    color: var(--color-texto);
+}
+
+.volver {
+    display: inline-block;
+    margin-top: var(--espacio-3);
+    font-size: 0.8rem;
+    color: var(--color-texto-suave);
+}
+
+.volver:hover {
+    color: var(--color-primario);
+}
+
+/* =========================================
+   ENCABEZADO DEL ARTICULO
+   Categoria, titulo y subtitulo, todo centrado
+   ========================================= */
+.articulo-cabecera {
+    text-align: center;
+    max-width: 900px;
+    margin: 0 auto;
+    padding-top: var(--espacio-4);
+    padding-bottom: var(--espacio-4);
+}
+
+.articulo-cabecera .badge {
+    display: inline-block;
+}
+
+.articulo-titulo {
+    font-size: 2.6rem;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-top: var(--espacio-3);
+}
+
+.articulo-subtitulo {
+    font-family: var(--fuente-titulos);
+    font-style: italic;
+    font-size: 1.15rem;
+    color: var(--color-texto-suave);
+    max-width: 760px;
+    margin-top: var(--espacio-3);
+    margin-bottom: 0;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* =========================================
+   IMAGEN PRINCIPAL
+   ========================================= */
+.articulo-figura {
+    margin-top: var(--espacio-4);
+    margin-bottom: var(--espacio-4);
+}
+
+.articulo-figura img {
+    width: 100%;
+    height: 480px;
+    object-fit: cover;
+}
+
+.articulo-figura figcaption {
+    text-align: center;
+    font-style: italic;
+    font-size: 0.8rem;
+    color: var(--color-texto-suave);
+    margin-top: var(--espacio-2);
+}
+
+/* =========================================
+   LAYOUT
+   Columna de acciones, texto y barra lateral
+   ========================================= */
+.articulo-layout {
+    display: grid;
+    grid-template-columns: 60px 1fr 300px;
+    gap: var(--espacio-5);
+    align-items: start;
+}
+
+/* =========================================
+   COLUMNA IZQUIERDA
+   Boton de favorito y enlaces para compartir
+   ========================================= */
+.articulo-acciones {
+    position: sticky;
+    top: 90px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--espacio-3);
+    padding-top: var(--espacio-3);
+}
+
+/* Boton grande de guardar en favoritos */
+.btn-favorito-grande {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    border: 1px solid var(--color-borde);
+    background-color: var(--color-blanco);
+    color: var(--color-texto-suave);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.btn-favorito-grande:hover {
+    color: var(--color-primario);
+    border-color: var(--color-primario);
+}
+
+/* Cuando la noticia ya esta en favoritos */
+.btn-favorito-grande.activo {
+    color: var(--color-primario);
+}
+
+.btn-favorito-grande.activo svg {
+    fill: currentColor;
+}
+
+/* Línea que separa el marcador de "Compartir" */
+.acciones-linea {
+    width: 24px;
+    height: 1px;
+    background-color: var(--color-borde);
+}
+
+/* Texto "Compartir", escrito en vertical */
+.compartir-etiqueta {
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--color-texto-suave);
+    writing-mode: vertical-rl;
+}
+
+/* Iconos de las redes, sin circulo ni borde */
+.compartir-enlace {
+    border: 0;
+    border-radius: 0;
+    width: auto;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-texto-suave);
+}
+
+.compartir-enlace:hover {
+    background-color: transparent;
+    color: var(--color-primario);
+}
+
+/* =========================================
+   CUERPO DEL ARTICULO
+   Autor, datos, texto, cita, puntos clave y etiquetas
+   ========================================= */
+.articulo-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: var(--espacio-3);
+    padding-top: var(--espacio-3);
+    padding-bottom: var(--espacio-3);
+    border-top: 1px solid var(--color-borde);
+    border-bottom: 1px solid var(--color-borde);
+}
+
+/* Autor con su avatar */
+.autor {
+    display: flex;
+    align-items: center;
+    gap: var(--espacio-3);
+}
+
+.autor strong {
+    display: block;
+    font-size: 0.9rem;
+}
+
+/* El cargo va debajo del nombre */
+.autor span {
+    font-size: 0.8rem;
+    color: var(--color-texto-suave);
+}
+
+.autor-avatar {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background-color: var(--color-fondo-suave);
+    color: var(--color-primario);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.9rem;
+    font-weight: 700;
+}
+
+/* Fecha, visitas, tiempo de lectura y comentarios, en 2x2 */
+.meta-datos {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    gap: 6px var(--espacio-4);
+    font-size: 0.8rem;
+    color: var(--color-texto-suave);
+}
+
+/* Cada dato lleva su icono delante */
+.meta-dato {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+/* Texto del articulo */
+.articulo-texto {
+    font-family: var(--fuente-titulos);
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin-top: var(--espacio-4);
+}
+
+.articulo-texto p {
+    margin-bottom: var(--espacio-4);
+}
+
+.articulo-texto h2 {
+    font-size: 1.6rem;
+    margin-top: var(--espacio-5);
+    margin-bottom: var(--espacio-3);
+}
+
+/* Cita destacada, con comilla decorativa */
+.articulo-cita {
+    background-color: #f8fafc;
+    border-left: 4px solid var(--color-primario);
+    padding: var(--espacio-4) var(--espacio-5);
+    margin-top: var(--espacio-5);
+    margin-bottom: var(--espacio-5);
+    position: relative;
+    font-style: italic;
+    font-weight: 400;
+}
+
+/* La comilla grande que va detrás del texto */
+.articulo-cita::before {
+    content: "\201C";
+    font-family: var(--fuente-titulos);
+    font-size: 4rem;
+    color: #cbd5e1;
+    position: absolute;
+    top: 0;
+    left: 12px;
+    line-height: 1;
+}
+
+/* El texto de la cita, sin comillas escritas */
+.cita-texto {
+    font-size: 1.4rem;
+    line-height: 1.5;
+    color: var(--color-texto);
+    margin: 0 0 var(--espacio-3);
+    padding-top: var(--espacio-4);
+}
+
+/* El autor de la cita, en mayusculas y en azul */
+.cita-autor {
+    display: block;
+    font-family: var(--fuente-interfaz);
+    font-style: normal;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 500;
+    color: var(--color-primario);
+}
+
+/* Lista de puntos clave */
+.puntos-clave {
+    background-color: #e0f2fe;
+    border: 1px solid #bfdbfe;
+    padding: var(--espacio-4);
+    margin-bottom: var(--espacio-4);
+    box-shadow: var(--sombra-suave);
+}
+
+/* Titulo de la caja, en pequeño y en mayusculas */
+.puntos-titulo {
+    font-family: var(--fuente-interfaz);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 700;
+    color: var(--color-primario);
+    margin: 0 0 var(--espacio-3);
+}
+
+.puntos-clave ul {
+    list-style: disc;
+    padding-left: 20px;
+}
+
+.puntos-clave li {
+    font-size: 0.95rem;
+    margin-bottom: var(--espacio-2);
+}
+
+/* Etiquetas del final */
+.articulo-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--espacio-2);
+    padding-top: var(--espacio-3);
+    border-top: 1px solid var(--color-borde);
+}
+
+.tag {
+    border: 1px solid var(--color-borde);
+    border-radius: var(--radio-redondo);
+    padding: 4px 12px;
+    font-size: 0.75rem;
+    color: var(--color-texto-suave);
+}
+
+/* Banner para suscribirse */
+.banner-mantente {
+    background-color: var(--color-primario);
+    color: var(--color-blanco);
+    padding: var(--espacio-5);
+    margin-top: var(--espacio-5);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: var(--espacio-4);
+}
+
+.banner-mantente h2 {
+    font-family: var(--fuente-titulos);
+    font-size: 1.8rem;
+}
+
+.banner-mantente p {
+    color: #dbeafe;
+    font-size: 0.95rem;
+    margin-top: var(--espacio-2);
+}
+
+/* =========================================
+   BARRA LATERAL
+   Lo mas leido, publicidad y mas noticias
+   ========================================= */
+.articulo-lateral {
+    display: flex;
+    flex-direction: column;
+    gap: var(--espacio-5);
+}
+
+.articulo-lateral .titulo-caja {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 700;
+    padding-bottom: var(--espacio-2);
+    border-bottom: 2px solid var(--color-primario);
+    margin-bottom: var(--espacio-3);
+}
+
+.lista-mas-leidos {
+    display: flex;
+    flex-direction: column;
+    gap: var(--espacio-3);
+}
+
+/* Numero a la izquierda, categoria y titulo a la derecha */
+.mas-leido-item {
+    display: flex;
+    gap: var(--espacio-3);
+    align-items: flex-start;
+}
+
+.mas-leido-numero {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: #cbd5e1;
+    line-height: 1;
+}
+
+.mas-leido-cat {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: var(--color-primario);
+}
+
+.mas-leido-titulo {
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.mas-leido-titulo:hover {
+    color: var(--color-primario);
+}
+
+/* Caja de publicidad */
+.caja-publicidad {
+    background-color: #f8fafc;
+    border: 1px dashed var(--color-borde);
+    padding: var(--espacio-5) var(--espacio-3);
+    text-align: center;
+}
+
+.caja-publicidad span {
+    display: block;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--color-texto-suave);
+}
+
+.caja-publicidad p {
+    font-style: italic;
+    font-size: 0.85rem;
+    margin-top: var(--espacio-3);
+    margin-bottom: var(--espacio-3);
+}
+
+.caja-publicidad a {
+    color: var(--color-primario);
+    font-weight: 600;
+    font-size: 0.85rem;
+}
+
+.lista-mas-noticias {
+    display: flex;
+    flex-direction: column;
+    gap: var(--espacio-4);
+}
+
+/* =========================================
+   NOTICIAS RELACIONADAS
+   ========================================= */
+.relacionadas {
+    background-color: #f8fafc;
+    border-top: 1px solid var(--color-borde);
+    padding-top: var(--espacio-6);
+    padding-bottom: var(--espacio-6);
+    margin-top: var(--espacio-6);
+}
+
+.relacionadas-cabecera {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    flex-wrap: wrap;
+    gap: var(--espacio-3);
+    margin-bottom: var(--espacio-4);
+}
+
+.relacionadas-cabecera h2 {
+    font-size: 1.8rem;
+}
+
+.relacionadas-cabecera p {
+    color: var(--color-texto-suave);
+    margin-top: var(--espacio-1);
+}
+
+.ver-todo {
+    color: var(--color-primario);
+    font-weight: 600;
+    font-size: 0.85rem;
+}
+
+.grilla-3 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--espacio-4);
+}
+
+/* =========================================
+   RESPONSIVE
+   En pantallas pequenas todo se apila
+   ========================================= */
+@media (max-width: 900px) {
+    /* El articulo pasa a una sola columna */
+    .articulo-layout {
+        grid-template-columns: 1fr;
+    }
+
+    /* Los botones de compartir se ponen en fila y dejan de moverse */
+    .articulo-acciones {
+        position: static;
+        flex-direction: row;
+        justify-content: flex-start;
+    }
+
+    .compartir-etiqueta {
+        writing-mode: horizontal-tb;
+    }
+
+    /* La imagen principal baja de alto */
+    .articulo-figura img {
+        height: 300px;
+    }
+
+    /* Las relacionadas pasan a dos columnas */
+    .grilla-3 {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .articulo-titulo {
+        font-size: 1.8rem;
+    }
+
+    .grilla-3 {
+        grid-template-columns: 1fr;
+    }
+
+    /* El banner se apila */
+    .banner-mantente {
+        flex-direction: column;
+    }
+}

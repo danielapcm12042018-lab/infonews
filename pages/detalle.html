@@ -19,7 +19,99 @@
     <div id="app-header"></div>
 
     <main>
-        <h1>Detalle de la noticia</h1>
+        <!-- 1. Navegacion superior: migas y enlace para volver al listado -->
+        <div class="contenedor detalle-nav">
+            <nav class="migas" aria-label="Migas de pan">
+                <a href="../index.html">Inicio</a>
+                <span>›</span>
+                <a href="noticias.html">Noticias</a>
+                <span>›</span>
+                <span id="miga-categoria"></span>
+            </nav>
+
+            <a class="volver" href="noticias.html">← Volver a noticias</a>
+        </div>
+
+        <!-- 2. Titulo, autor y fecha (se rellena desde detalle.js) -->
+        <header class="contenedor articulo-cabecera" id="articulo-cabecera"></header>
+
+        <!-- 3. Imagen principal del articulo -->
+        <figure class="contenedor articulo-figura" id="articulo-figura"></figure>
+
+        <!-- 4. Contenido: acciones, texto del articulo y barra lateral -->
+        <div class="contenedor articulo-layout">
+            <aside class="articulo-acciones">
+                <button class="btn-favorito btn-favorito-grande" id="btn-favorito-detalle" type="button" aria-label="Guardar en favoritos">
+                    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m19 21-7-4-7 4V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16z"/></svg>
+                </button>
+
+                <!-- Línea que separa el marcador de "Compartir" -->
+                <span class="acciones-linea"></span>
+
+                <span class="compartir-etiqueta">Compartir</span>
+
+                <a class="compartir-enlace" href="#" aria-label="Compartir en Facebook">
+                    <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+                </a>
+                <a class="compartir-enlace" href="#" aria-label="Compartir en Twitter">
+                    <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"/></svg>
+                </a>
+                <a class="compartir-enlace" href="#" aria-label="Compartir en LinkedIn">
+                    <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
+                </a>
+            </aside>
+
+            <article class="articulo-cuerpo">
+                <div class="articulo-meta" id="articulo-meta"></div>
+                <div class="articulo-texto" id="articulo-texto"></div>
+                <div class="articulo-tags" id="articulo-tags"></div>
+
+                <!-- Banner para suscribirse -->
+                <section class="banner-mantente">
+                    <div>
+                        <h2>Mantente informado</h2>
+                        <p>Recibe las noticias más importantes de tecnología y negocios cada mañana en tu bandeja de entrada.</p>
+                    </div>
+                    <a class="btn btn-contorno" href="contacto.html">Suscribirme ahora</a>
+                </section>
+            </article>
+
+            <aside class="articulo-lateral">
+                <!-- Lo mas leido -->
+                <section class="caja-lateral">
+                    <h3 class="titulo-caja">Lo más leído</h3>
+                    <ol class="lista-mas-leidos" id="lista-mas-leidos"></ol>
+                </section>
+
+                <!-- Publicidad -->
+                <section class="caja-publicidad">
+                    <span>Publicidad</span>
+                    <p>Suscríbete a InfoNews Premium por solo 4,99 €/mes</p>
+                    <a href="contacto.html">Ver planes</a>
+                </section>
+
+                <!-- Mas noticias -->
+                <section class="caja-lateral">
+                    <h3 class="titulo-caja">Más noticias</h3>
+                    <div class="lista-mas-noticias" id="lista-mas-noticias"></div>
+                </section>
+            </aside>
+        </div>
+
+        <!-- 5. Noticias relacionadas al final del articulo -->
+        <section class="relacionadas">
+            <div class="contenedor">
+                <div class="relacionadas-cabecera">
+                    <div>
+                        <h2>Noticias Relacionadas</h2>
+                        <p>Continúa leyendo sobre los temas que más te interesan con nuestra selección editorial.</p>
+                    </div>
+                    <a class="ver-todo" href="noticias.html">Ver todas las noticias ›</a>
+                </div>
+
+                <div class="grilla-3" id="lista-relacionadas"></div>
+            </div>
+        </section>
     </main>
 
     <!-- Pie de pagina comun, se rellena desde components.js -->
