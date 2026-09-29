@@ -1,0 +1,424 @@
+/* =========================================
+   CABECERA DE LA PAGINA
+   Migas, titulo, descripcion y buscador
+   ========================================= */
+.cabecera-pagina {
+    background-color: #f1f5f9;
+    border-bottom: 1px solid var(--color-borde);
+    padding-top: var(--espacio-4);
+    padding-bottom: var(--espacio-4);
+}
+
+/* Migas de pan */
+.migas {
+    display: flex;
+    gap: var(--espacio-2);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    color: var(--color-texto-suave);
+    margin-bottom: var(--espacio-3);
+}
+
+.migas a:hover {
+    color: var(--color-primario);
+}
+
+/* Titulo y buscador en la misma fila */
+.cabecera-fila {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: var(--espacio-4);
+    flex-wrap: wrap;
+}
+
+.cabecera-fila h1 {
+    font-size: 3rem;
+    font-weight: 700;
+}
+
+.cabecera-fila p {
+    max-width: 520px;
+    color: var(--color-texto-suave);
+    margin-top: var(--espacio-2);
+}
+
+/* Campo de busqueda */
+.campo-buscar {
+    width: 320px;
+    padding: 10px 14px;
+    border: 1px solid var(--color-borde);
+    background-color: var(--color-blanco);
+    font-size: 0.9rem;
+    border-radius: 0;
+}
+
+/* =========================================
+   BARRA DE FILTROS
+   Botones para filtrar por categoria
+   ========================================= */
+.barra-filtros {
+    background-color: var(--color-blanco);
+    border-bottom: 1px solid var(--color-borde);
+}
+
+.filtros-fila {
+    display: flex;
+    align-items: center;
+    gap: var(--espacio-4);
+}
+
+.filtros-etiqueta {
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: var(--color-texto-suave);
+}
+
+.filtros-lista {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--espacio-4);
+}
+
+/* Botones de cada categoria */
+.filtro {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 14px 4px;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--color-texto-suave);
+    border-bottom: 2px solid transparent;
+}
+
+.filtro:hover {
+    color: var(--color-primario);
+}
+
+/* El filtro que esta seleccionado */
+.filtro.activo {
+    color: var(--color-primario);
+    font-weight: 600;
+    border-bottom: 2px solid var(--color-primario);
+}
+
+/* =========================================
+   CONTENIDO
+   Listado principal y barra lateral
+   ========================================= */
+.contenido-listado {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: var(--espacio-5);
+    align-items: start;
+    padding-top: var(--espacio-5);
+}
+
+/* =========================================
+   GRILLA DE 2 COLUMNAS
+   ========================================= */
+.grilla-2 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--espacio-4);
+}
+
+/* =========================================
+   PAGINACION
+   Botones "Anterior", numeros y "Siguiente"
+   ========================================= */
+.paginacion {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: var(--espacio-2);
+    margin-top: var(--espacio-5);
+    padding-top: var(--espacio-4);
+    border-top: 1px solid var(--color-borde);
+}
+
+.pag-btn {
+    background-color: var(--color-blanco);
+    border: 1px solid var(--color-borde);
+    padding: 8px 14px;
+    cursor: pointer;
+    font-size: 0.85rem;
+}
+
+.pag-btn:hover {
+    border-color: var(--color-primario);
+}
+
+/* La pagina que estamos viendo */
+.pag-btn.activo {
+    background-color: var(--color-primario);
+    color: var(--color-blanco);
+    border-color: var(--color-primario);
+}
+
+/* Los botones que no se pueden pulsar */
+.pag-btn[disabled] {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+
+/* =========================================
+   BARRA LATERAL
+   Lo mas leido, suscripcion y temas populares
+   ========================================= */
+.listado-lateral {
+    display: flex;
+    flex-direction: column;
+    gap: var(--espacio-4);
+}
+
+/* "Lo mas leido" va sin caja, solo con el titulo subrayado */
+.caja-mas-leido {
+    background: none;
+    border-left: none;
+    padding: 0;
+}
+
+.caja-mas-leido .titulo-caja {
+    border-bottom: 2px solid var(--color-texto);
+    padding-bottom: var(--espacio-2);
+}
+
+/* Caja de suscripcion al boletin */
+.caja-daily {
+    background-color: var(--color-primario);
+    color: var(--color-blanco);
+    padding: var(--espacio-4);
+}
+
+.caja-daily h3 {
+    font-family: var(--fuente-titulos);
+    font-size: 1.4rem;
+    color: var(--color-blanco);
+}
+
+.caja-daily p {
+    font-size: 0.85rem;
+    color: #dbeafe;
+    margin-top: var(--espacio-3);
+    margin-bottom: var(--espacio-3);
+}
+
+/* Campo de correo de la suscripcion */
+.campo-daily {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #3b5bb5;
+    background-color: #2c4a9e;
+    color: var(--color-blanco);
+    margin-bottom: var(--espacio-3);
+}
+
+.campo-daily::placeholder {
+    color: #bfdbfe;
+}
+
+.caja-daily small {
+    display: block;
+    text-align: center;
+    font-size: 0.7rem;
+    color: #93c5fd;
+    margin-top: var(--espacio-3);
+}
+
+/* Temas populares */
+.caja-temas .titulo-caja {
+    border-bottom: 1px solid var(--color-borde);
+    padding-bottom: var(--espacio-2);
+}
+
+.lista-temas {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--espacio-2);
+    margin-top: var(--espacio-3);
+}
+
+.tema {
+    background-color: #e0f2fe;
+    color: var(--color-primario);
+    font-size: 0.75rem;
+    padding: 4px 10px;
+}
+
+/* =========================================
+   PENSAMIENTO DEL DIA
+   ========================================= */
+.pensamiento {
+    background-color: #f1f5f9;
+    text-align: center;
+    padding-top: var(--espacio-6);
+    padding-bottom: var(--espacio-6);
+    margin-top: var(--espacio-6);
+    border-top: 1px solid var(--color-borde);
+}
+
+.pensamiento-etiqueta {
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: var(--color-primario);
+}
+
+.pensamiento blockquote {
+    font-family: var(--fuente-titulos);
+    font-style: italic;
+    font-size: 1.6rem;
+    max-width: 700px;
+    margin-top: var(--espacio-3);
+    margin-bottom: var(--espacio-3);
+    margin-left: auto;
+    margin-right: auto;
+    color: var(--color-texto);
+}
+
+.pensamiento-autor {
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: var(--color-texto-suave);
+}
+
+/* =========================================
+   RESPONSIVE
+   En pantallas pequenas todo se apila
+   ========================================= */
+@media (max-width: 900px) {
+    /* El contenido pasa a una sola columna */
+    .contenido-listado {
+        grid-template-columns: 1fr;
+    }
+
+    /* El buscador ocupa todo el ancho */
+    .campo-buscar {
+        width: 100%;
+    }
+}
+
+@media (max-width: 600px) {
+    /* Las noticias a una sola columna */
+    .grilla-2 {
+        grid-template-columns: 1fr;
+    }
+
+    .cabecera-fila h1 {
+        font-size: 2rem;
+    }
+
+    /* Los filtros se apilan y quedan a la izquierda */
+    .filtros-fila {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+
+/* =========================================
+   CARDS DEL LISTADO
+   En esta pagina las noticias no llevan fondo ni botones
+   ========================================= */
+.card-listado {
+    background-color: transparent;
+    border: 0;
+    border-bottom: 1px solid var(--color-borde);
+    padding-bottom: var(--espacio-3);
+}
+
+.card-listado img {
+    height: 230px;
+    object-fit: cover;
+}
+
+/* Autor y fecha: en components.css esta bloqueado con display: none */
+.card-listado .card-meta {
+    display: flex;
+    align-items: center;
+    gap: var(--espacio-2);
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--color-texto-suave);
+    padding: 0;
+    margin-top: var(--espacio-3);
+}
+
+/* El icono de calendario va pegado a la fecha */
+.card-listado .meta-fecha {
+    display: inline-flex;
+    gap: 4px;
+    align-items: center;
+}
+
+.card-listado h3 {
+    font-size: 1.3rem;
+    font-weight: 500;
+    padding: 0;
+    margin-top: var(--espacio-2);
+}
+
+.card-listado p {
+    padding: 0;
+    font-size: 0.9rem;
+    color: var(--color-texto-suave);
+}
+
+/* En el listado no hay botones de guardar ni de compartir */
+.card-listado .card-acciones {
+    display: none;
+}
+
+/* El pie va sin borde, pegado a la izquierda */
+.card-listado .card-pie {
+    border-top: none;
+    padding: 0;
+    margin-top: var(--espacio-2);
+    justify-content: flex-start;
+}
+
+.card-listado .leer-mas {
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    letter-spacing: 1px;
+}
+
+/* =========================================
+   LO MAS LEIDO DE ESTA PAGINA
+   Numero a la izquierda, categoria y titulo a la derecha
+   ========================================= */
+.listado-lateral .mas-leido-item {
+    display: flex;
+    gap: var(--espacio-3);
+}
+
+.listado-lateral .mas-leido-numero {
+    color: #cbd5e1;
+    font-size: 1.6rem;
+    font-weight: 700;
+}
+
+/* La categoria va encima del titulo */
+.listado-lateral .mas-leido-cat {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: var(--color-primario);
+}
+
+.listado-lateral .mas-leido-titulo {
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+/* Chips de temas populares */
+.tema {
+    background-color: #e0f2fe;
+    font-size: 0.75rem;
+    padding: 5px 12px;
+}

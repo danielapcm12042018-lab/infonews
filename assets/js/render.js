@@ -28,22 +28,31 @@ function formatearFecha(fechaTexto) {
 }
 
 /**
- * crearCardNoticia(noticia, rutaBase)
+ * crearCardNoticia(noticia, rutaBase, variante)
  * Devuelve el HTML de una tarjeta de noticia completa.
  * noticia: un objeto del JSON.
  * rutaBase: "" si la pagina esta en la raiz, "../" si esta dentro de pages/.
+ * variante: es opcional. Si vale "listado" la card lleva la clase extra
+ * "card-listado", que es la que usa la pagina de listado de noticias.
  * Incluye la imagen, el autor, la fecha, el titulo, la descripcion,
  * el boton de favorito y el enlace "Leer mas".
  */
-function crearCardNoticia(noticia, rutaBase) {
+function crearCardNoticia(noticia, rutaBase, variante) {
     // Ruta de la imagen, con rutaBase para que funcione en cualquier pagina
     var urlImagen = rutaBase + "assets/img/" + noticia.imagen;
 
     // Ruta del detalle. El id se manda en la URL para saber que noticia abrir
     var urlDetalle = rutaBase + "pages/detalle.html?id=" + noticia.id;
 
+    // Solo en el listado añadimos la clase "card-listado".
+    // En el Home no llega variante, asi que la card se queda como estaba.
+    var claseCard = "card";
+    if (variante === "listado") {
+        claseCard = "card card-listado";
+    }
+
     return `
-        <article class="card">
+        <article class="${claseCard}">
             <!-- Imagen con la categoria encima -->
             <div class="card-imagen">
                 <img src="${urlImagen}" alt="${noticia.titulo}">
@@ -51,10 +60,13 @@ function crearCardNoticia(noticia, rutaBase) {
             </div>
 
             <div class="card-cuerpo">
-                <!-- Autor y fecha -->
+                <!-- Autor y fecha, con un icono de calendario delante de la fecha -->
                 <p class="card-meta">
-                    <span class="card-autor">${noticia.autor}</span>
-                    <span class="card-fecha">${formatearFecha(noticia.fecha)}</span>
+                    <span class="meta-autor">${noticia.autor}</span>
+                    <span class="meta-fecha">
+                        <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+                        ${formatearFecha(noticia.fecha)}
+                    </span>
                 </p>
 
                 <!-- Titulo que lleva a la pagina de detalle -->
@@ -118,25 +130,29 @@ function crearCardSimple(noticia, rutaBase) {
 function crearItemMasLeido(noticia, posicion, rutaBase) {
     var urlDetalle = rutaBase + "pages/detalle.html?id=" + noticia.id;
 
-    // Añadimos un 0 delante y nos quedamos con los dos ultimos caracteres
+    // El numero va dentro de su propio span, para poder darle estilo aparte
     var numero = ("0" + posicion).slice(-2);
 
     return `
         <li class="mas-leido-item">
-            <span class="mas-leido-posicion">${numero}</span>
-            <span class="mas-leido-categoria">${noticia.categoria}</span>
-            <a class="mas-leido-titulo" href="${urlDetalle}">${noticia.titulo}</a>
+            <span class="mas-leido-numero">${numero}</span>
+            <div class="mas-leido-texto">
+                <span class="mas-leido-cat">${noticia.categoria}</span>
+                <a class="mas-leido-titulo" href="${urlDetalle}">${noticia.titulo}</a>
+            </div>
         </li>
     `;
 }
 
 /**
- * mostrarCards(noticias, idContenedor, rutaBase)
+ * mostrarCards(noticias, idContenedor, rutaBase, variante)
  * Escribe dentro del contenedor las tarjetas del array de noticias.
+ * variante es opcional y se pasa a crearCardNoticia(), para poder pintar
+ * las cards del listado de otra forma sin tocar el Home.
  * Si el array llega vacio, escribe un mensaje de "no hay resultados".
  * Si el contenedor no existe en esta pagina, no hace nada y no da error.
  */
-function mostrarCards(noticias, idContenedor, rutaBase) {
+function mostrarCards(noticias, idContenedor, rutaBase, variante) {
     // Buscamos el elemento donde se van a poner las noticias
     var contenedor = document.getElementById(idContenedor);
 
@@ -156,7 +172,8 @@ function mostrarCards(noticias, idContenedor, rutaBase) {
     // Vamos juntando el HTML de cada tarjeta en un solo texto
     var html = "";
     for (var i = 0; i < noticias.length; i++) {
-        html += crearCardNoticia(noticias[i], rutaBase);
+        // Le pasamos la variante para que crearCardNoticia sepa que pintar
+        html += crearCardNoticia(noticias[i], rutaBase, variante);
     }
 
     // Escribimos todo el HTML de golpe dentro del contenedor

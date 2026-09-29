@@ -19,7 +19,80 @@
     <div id="app-header"></div>
 
     <main>
-        <h1>Noticias</h1>
+        <!-- 1. Cabecera de la pagina: migas, titulo y buscador -->
+        <section class="cabecera-pagina">
+            <div class="contenedor">
+                <nav class="migas" aria-label="Migas de pan">
+                    <a href="../index.html">Inicio</a>
+                    <span>›</span>
+                    <span>Noticias</span>
+                </nav>
+
+                <div class="cabecera-fila">
+                    <div>
+                        <h1>Archivo de Noticias</h1>
+                        <p>Explore nuestro catálogo completo de periodismo riguroso y análisis profundo sobre los temas que definen nuestro tiempo.</p>
+                    </div>
+                    <input type="search" id="campo-buscar" class="campo-buscar" placeholder="Buscar artículos..." aria-label="Buscar artículos">
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. Barra de filtros por categoria (se llena desde noticias.js) -->
+        <div class="barra-filtros">
+            <div class="contenedor filtros-fila">
+                <span class="filtros-etiqueta">Filtrar</span>
+                <div class="filtros-lista" id="filtros-categorias"></div>
+            </div>
+        </div>
+
+        <!-- 3. Contenido: listado de noticias + columna lateral -->
+        <div class="contenedor contenido-listado">
+            <section class="listado-principal">
+                <div class="grilla-2" id="grilla-noticias"></div>
+                <nav class="paginacion" id="paginacion" aria-label="Paginación"></nav>
+            </section>
+
+            <aside class="listado-lateral">
+                <!-- Lo mas leido (se llena desde noticias.js) -->
+                <section class="caja-mas-leido">
+                    <h2 class="titulo-caja">Lo más leído</h2>
+                    <ol class="lista-mas-leidos" id="lista-mas-leidos"></ol>
+                </section>
+
+                <!-- Suscripcion al boletin diario -->
+                <section class="caja-daily">
+                    <h3>InfoNews Daily</h3>
+                    <p>Reciba lo más relevante del periodismo nacional e internacional directamente en su bandeja de entrada cada mañana.</p>
+                    <input type="email" class="campo-daily" placeholder="Correo electrónico" aria-label="Correo electrónico">
+                    <button class="btn btn-blanco btn-ancho" type="button">Suscribirse ahora</button>
+                    <small>Al suscribirse acepta nuestra Política de Privacidad.</small>
+                </section>
+
+                <!-- Temas populares -->
+                <section class="caja-temas">
+                    <h3 class="titulo-caja">Temas populares</h3>
+                    <div class="lista-temas">
+                        <span class="tema">Inteligencia Artificial</span>
+                        <span class="tema">Cambio Climático</span>
+                        <span class="tema">Elecciones 2026</span>
+                        <span class="tema">Economía Digital</span>
+                        <span class="tema">Exploración Espacial</span>
+                        <span class="tema">Salud Pública</span>
+                        <span class="tema">Cine Independiente</span>
+                    </div>
+                </section>
+            </aside>
+        </div>
+
+        <!-- 4. Pensamiento del dia -->
+        <section class="pensamiento">
+            <div class="contenedor">
+                <p class="pensamiento-etiqueta">Pensamiento del día</p>
+                <blockquote>"El periodismo es lo que alguien no quiere que se publique. Todo lo demás es relaciones públicas."</blockquote>
+                <p class="pensamiento-autor">— George Orwell</p>
+            </div>
+        </section>
     </main>
 
     <!-- Pie de pagina comun, se rellena desde components.js -->
