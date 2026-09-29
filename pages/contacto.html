@@ -19,7 +19,151 @@
     <div id="app-header"></div>
 
     <main>
-        <h1>Contacto</h1>
+        <!-- =========================================
+             1. HERO "ATENCION AL LECTOR"
+             Texto de bienvenida e imagen
+             ========================================= -->
+        <section class="contacto-hero">
+            <div class="contenedor contacto-hero-fila">
+                <div class="contacto-hero-texto">
+                    <span class="etiqueta-contorno">Atención al lector</span>
+                    <h1>Estamos aquí para <em>escucharte</em>.</h1>
+                    <p>En InfoNews, valoramos la comunicación directa con nuestra audiencia. Ya sea una pista informativa, una duda sobre tu suscripción o simplemente quieras saludarnos, nuestro equipo editorial y de soporte está listo para responder.</p>
+                </div>
+
+                <div class="contacto-hero-imagen">
+                    <img src="../assets/img/contacto.jpg" alt="Conectividad global y comunicación">
+                </div>
+            </div>
+        </section>
+
+        <!-- =========================================
+             2. INFORMACION Y FORMULARIO
+             A la izquierda los canales de contacto,
+             a la derecha el formulario
+             ========================================= -->
+        <div class="contenedor contacto-layout">
+            <!-- 2.a Canales de contacto -->
+            <section class="contacto-info">
+                <h2>Información de Contacto</h2>
+                <p class="contacto-info-intro">Utiliza cualquiera de nuestros canales oficiales para comunicarte con los departamentos correspondientes.</p>
+
+                <!-- Cada tarjeta es un canal. El icono lo rellena contacto.js -->
+                <div class="info-tarjeta">
+                    <span class="info-icono"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg></span>
+                    <div>
+                        <h3>Correos electrónicos</h3>
+                        <p><span>Redacción:</span> redaccion@infonews.com</p>
+                        <p><span>Soporte:</span> ayuda@infonews.com</p>
+                        <p><span>Publicidad:</span> ventas@infonews.com</p>
+                    </div>
+                </div>
+
+                <div class="info-tarjeta">
+                    <span class="info-icono"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg></span>
+                    <div>
+                        <h3>Líneas telefónicas</h3>
+                        <p><span>Central:</span> +34 910 000 000</p>
+                        <p><span>Suscripciones:</span> +34 910 111 222</p>
+                    </div>
+                </div>
+
+                <div class="info-tarjeta">
+                    <span class="info-icono"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg></span>
+                    <div>
+                        <h3>Nuestra sede</h3>
+                        <p><span>Dirección:</span> Calle de la Prensa, 42. 28001 Madrid, España</p>
+                    </div>
+                </div>
+
+                <div class="info-tarjeta">
+                    <span class="info-icono"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></span>
+                    <div>
+                        <h3>Horario de atención</h3>
+                        <p><span>Lunes a Viernes:</span> 08:00 - 20:00 (CET)</p>
+                        <p><span>Sábados:</span> 09:00 - 14:00 (CET)</p>
+                    </div>
+                </div>
+
+                <!-- Redes sociales -->
+                <div class="contacto-redes">
+                    <h2>Síguenos en Redes</h2>
+                    <a class="red-boton" href="#">Twitter</a>
+                    <a class="red-boton" href="#">LinkedIn</a>
+                    <a class="red-boton" href="#">Facebook</a>
+                    <a class="red-boton" href="#">Instagram</a>
+                </div>
+            </section>
+
+            <!-- 2.b Formulario de contacto -->
+            <section class="contacto-formulario">
+                <h2>Envíanos un Mensaje</h2>
+                <p class="formulario-intro">Completa el formulario y te responderemos en un plazo máximo de 24 horas hábiles.</p>
+
+                <!-- Aviso de exito, lo muestra contacto.js tras enviar -->
+                <div class="mensaje-exito" id="mensaje-exito" hidden>
+                    <strong>¡Mensaje enviado!</strong>
+                    <p>Gracias por escribirnos. Te responderemos en un plazo máximo de 24 horas hábiles.</p>
+                </div>
+
+                <!-- novalidate: los mensajes de error los pone nuestro JavaScript -->
+                <form id="formulario-contacto" novalidate>
+                    <div class="campo-fila">
+                        <div class="campo-grupo">
+                            <label for="nombre">Nombre completo</label>
+                            <input type="text" id="nombre" name="nombre" placeholder="Ej. Juan Pérez">
+                            <span class="error-texto" id="error-nombre"></span>
+                        </div>
+
+                        <div class="campo-grupo">
+                            <label for="correo">Correo electrónico</label>
+                            <input type="email" id="correo" name="correo" placeholder="juan@ejemplo.com">
+                            <span class="error-texto" id="error-correo"></span>
+                        </div>
+                    </div>
+
+                    <div class="campo-grupo">
+                        <label for="asunto">Asunto</label>
+                        <input type="text" id="asunto" name="asunto" placeholder="¿En qué podemos ayudarte?">
+                        <span class="error-texto" id="error-asunto"></span>
+                    </div>
+
+                    <div class="campo-grupo">
+                        <label for="mensaje">Mensaje</label>
+                        <textarea id="mensaje" name="mensaje" rows="6" placeholder="Escribe tu mensaje aquí..."></textarea>
+                        <span class="error-texto" id="error-mensaje"></span>
+                    </div>
+
+                    <button class="btn btn-primario btn-ancho" type="submit"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></svg>Enviar Mensaje</button>
+
+                    <small class="formulario-legal">Al enviar este formulario, aceptas nuestra Política de Privacidad y Términos de Servicio.</small>
+                </form>
+            </section>
+        </div>
+
+        <!-- =========================================
+             3. BUSCAS ALGO MAS ESPECIFICO?
+             Dos accesos rapidos
+             ========================================= -->
+        <section class="contacto-extra">
+            <div class="contenedor">
+                <h2>¿Buscas algo más específico?</h2>
+
+                <div class="extra-grilla">
+                    <a class="extra-tarjeta" href="#">
+                        <span class="extra-icono"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></span>
+                        <h3>Prensa Internacional</h3>
+                        <p>Conoce nuestras colaboraciones con agencias de noticias globales.</p>
+                    </a>
+
+                    <a class="extra-tarjeta" href="#">
+                        <span class="extra-icono"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></span>
+                        <h3>Preguntas Frecuentes</h3>
+                        <p>Resuelve tus dudas sobre suscripciones y pagos inmediatamente.</p>
+                    </a>
+                </div>
+            </div>
+        </section>
     </main>
 
     <!-- Pie de pagina comun, se rellena desde components.js -->
