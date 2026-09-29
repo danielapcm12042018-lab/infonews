@@ -16,16 +16,25 @@
 
 /* =========================================
    HEADER
-   Barra fija arriba con logo, menu y buscador
+   Barra fija arriba con logo, menu y buscador.
+   El fondo es translucido para que se vea el contenido
+   que pasa por debajo sin tapar el menu.
    ========================================= */
 .header {
-    background-color: var(--color-blanco);
-    border-bottom: 1px solid var(--color-borde);
-
-    /* Se queda pegado arriba al hacer scroll */
     position: sticky;
     top: 0;
     z-index: 100;
+
+    /* Blanco semitransparente: el contenido se ve difuminado detras */
+    background-color: rgba(255, 255, 255, 0.75);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+
+    /* Borde inferior sutil para separar el header del contenido */
+    border-bottom: 1px solid rgba(30, 58, 138, 0.12);
+
+    /* Sombra suave, da profundidad al pasar el contenido por debajo */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
 }
 
 /* Fila unica: logo a la izquierda, menu al centro, buscador a la derecha */
@@ -46,16 +55,30 @@
     font-weight: 700;
     font-size: 1.25rem;
     color: var(--color-texto);
+
+    /* El logo nunca se deforma ni se aplasta si falta espacio */
+    flex-shrink: 0;
+    white-space: nowrap;
 }
 
-/* Circulo azul antes del texto */
-.logo::before {
-    content: "";
-    display: inline-block;
+/* Circulo azul con el icono de noticias en blanco */
+.logo-icono {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
     width: 32px;
     height: 32px;
     border-radius: 50%;
     background-color: var(--color-primario);
+    color: var(--color-blanco);
+}
+
+/* El SVG mantiene siempre el mismo tamano dentro del circulo */
+.logo-icono svg {
+    width: 18px;
+    height: 18px;
+    display: block;
 }
 
 /* --- Menu --- */
