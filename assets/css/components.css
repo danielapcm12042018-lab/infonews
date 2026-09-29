@@ -289,3 +289,28 @@
     padding: var(--espacio-5);
     text-align: center;
 }
+
+/* =========================================
+   AVISO
+   Cartelito que avisa de que se guardo, quito o copio algo
+   ========================================= */
+.aviso {
+    position: fixed;
+    bottom: 24px;
+    left: 50%;
+    transform: translateX(-50%) translateY(20px);
+    background-color: var(--color-texto);
+    color: #ffffff;
+    padding: 10px 20px;
+    font-size: 0.85rem;
+    border-radius: 4px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.25s, transform 0.25s;
+    z-index: 200;
+}
+
+.aviso.visible {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+}

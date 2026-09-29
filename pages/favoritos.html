@@ -19,7 +19,48 @@
     <div id="app-header"></div>
 
     <main>
-        <h1>Mis favoritos</h1>
+        <!-- =========================================
+             1. CABECERA DE LA PAGINA
+             Migas de pan, titulo y boton de vaciar
+             ========================================= -->
+        <section class="cabecera-pagina">
+            <div class="contenedor">
+                <nav class="migas" aria-label="Migas de pan">
+                    <a href="../index.html">Inicio</a>
+                    <span>›</span>
+                    <span>Favoritos</span>
+                </nav>
+
+                <div class="cabecera-fila">
+                    <div>
+                        <h1>Mis favoritos</h1>
+                        <p>Las noticias que guardaste para leer más tarde.</p>
+                    </div>
+
+                    <button class="btn btn-primario" id="btn-quitar-todos" type="button">Quitar todos</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- =========================================
+             2. CONTENIDO
+             El contador y la grilla los llena favoritos.js,
+             y el aviso de "sin favoritos" se muestra si no hay ninguno
+             ========================================= -->
+        <div class="contenedor contenido-favoritos">
+            <!-- Cantidad de noticias guardadas -->
+            <p class="favoritos-contador" id="favoritos-contador"></p>
+
+            <!-- Aqui van las cards de las noticias guardadas -->
+            <div class="grilla-2" id="grilla-favoritos"></div>
+
+            <!-- Se ve solo cuando el usuario no tiene ningun favorito -->
+            <div class="favoritos-vacio" id="favoritos-vacio" hidden>
+                <h2>Aún no tienes noticias guardadas</h2>
+                <p>Usa el marcador en las noticias para guardarlas aquí.</p>
+                <a class="btn btn-primario" href="noticias.html">Explorar noticias</a>
+            </div>
+        </div>
     </main>
 
     <!-- Pie de pagina comun, se rellena desde components.js -->

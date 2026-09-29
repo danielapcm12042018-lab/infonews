@@ -315,7 +315,29 @@ function init() {
         mostrarTags(noticia);
         mostrarLateral(noticia);
         mostrarRelacionadas(noticia);
+
+        // El boton grande de favorito necesita el id de esta noticia
+        activarFavoritoDetalle(noticia);
     });
+}
+
+/**
+ * activarFavoritoDetalle(noticia)
+ * Pone el id de la noticia en el boton grande de favorito
+ * y lo deja marcado si ya estaba en favoritos.
+ */
+function activarFavoritoDetalle(noticia) {
+    var boton = document.getElementById("btn-favorito-detalle");
+
+    if (boton === null) {
+        return;
+    }
+
+    // El id se guarda como atributo para que los clics lo puedan leer
+    boton.setAttribute("data-id", noticia.id);
+
+    // Marcamos todos los botones de favorito, tambien este
+    marcarFavoritosGuardados();
 }
 
 // Llamamos a init() para que todo empiece al cargar la pagina

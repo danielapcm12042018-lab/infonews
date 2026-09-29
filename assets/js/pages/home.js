@@ -226,6 +226,9 @@ function init() {
         mostrarDestacados();
         mostrarUltimas();
         mostrarCategorias();
+
+        // Las cards se pintan con JavaScript, asi que las marcamos al final
+        marcarFavoritosGuardados();
     });
 }
 

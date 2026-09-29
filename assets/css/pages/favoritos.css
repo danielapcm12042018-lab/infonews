@@ -1,0 +1,185 @@
+/* =========================================
+   ATRIBUTO HIDDEN
+   La clase .btn usa display: inline-block, y eso anularia
+   el atributo hidden. Con esta regla, hidden vuelve a ocultarlo.
+   ========================================= */
+[hidden] {
+    display: none !important;
+}
+
+/* =========================================
+   CABECERA DE LA PAGINA
+   Fondo suave, migas de pan y titulo con el boton a la derecha
+   ========================================= */
+.cabecera-pagina {
+    background-color: #f1f5f9;
+    border-bottom: 1px solid var(--color-borde);
+    padding-top: var(--espacio-4);
+    padding-bottom: var(--espacio-4);
+}
+
+/* Migas de pan */
+.migas {
+    display: flex;
+    gap: var(--espacio-2);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    color: var(--color-texto-suave);
+    margin-bottom: var(--espacio-3);
+}
+
+.migas a:hover {
+    color: var(--color-primario);
+}
+
+/* Titulo y boton "Quitar todos" en la misma fila */
+.cabecera-fila {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: var(--espacio-4);
+    flex-wrap: wrap;
+}
+
+.cabecera-fila h1 {
+    font-size: 3rem;
+    font-weight: 700;
+}
+
+.cabecera-fila p {
+    max-width: 520px;
+    color: var(--color-texto-suave);
+    margin-top: var(--espacio-2);
+}
+
+/* =========================================
+   CONTENIDO
+   El contador de noticias guardadas
+   ========================================= */
+.contenido-favoritos {
+    padding-top: var(--espacio-5);
+    padding-bottom: var(--espacio-5);
+}
+
+.favoritos-contador {
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--color-texto-suave);
+    margin-bottom: var(--espacio-4);
+}
+
+/* =========================================
+   GRILLA
+   Dos noticias por fila
+   ========================================= */
+.grilla-2 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--espacio-4);
+}
+
+/* =========================================
+   CARDS DE LA LISTA
+   Igual que en el listado de noticias: sin fondo ni borde,
+   solo una linea debajo para separarlas
+   ========================================= */
+.card-listado {
+    background-color: transparent;
+    border: 0;
+    border-bottom: 1px solid var(--color-borde);
+    padding-bottom: var(--espacio-3);
+}
+
+.card-listado img {
+    height: 230px;
+    object-fit: cover;
+}
+
+/* Autor y fecha: en components.css esta bloqueado con display: none */
+.card-listado .card-meta {
+    display: flex;
+    align-items: center;
+    gap: var(--espacio-2);
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--color-texto-suave);
+    padding: 0;
+    margin-top: var(--espacio-3);
+}
+
+/* El icono de calendario va pegado a la fecha */
+.card-listado .meta-fecha {
+    display: inline-flex;
+    gap: 4px;
+    align-items: center;
+}
+
+.card-listado h3 {
+    font-size: 1.3rem;
+    font-weight: 500;
+    padding: 0;
+    margin-top: var(--espacio-2);
+}
+
+.card-listado p {
+    padding: 0;
+    font-size: 0.9rem;
+    color: var(--color-texto-suave);
+}
+
+/* Aqui si se ven los botones de guardar y de compartir */
+.card-listado .card-acciones {
+    display: flex;
+}
+
+/* El pie va sin borde y con el boton a un lado y "Leer mas" al otro */
+.card-listado .card-pie {
+    border-top: none;
+    padding: 0;
+    margin-top: var(--espacio-2);
+    justify-content: space-between;
+}
+
+.card-listado .leer-mas {
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    letter-spacing: 1px;
+}
+
+/* =========================================
+   AVISO DE "SIN FAVORITOS"
+   Solo se ve cuando el usuario no ha guardado ninguna noticia
+   ========================================= */
+.favoritos-vacio {
+    text-align: center;
+    padding: var(--espacio-6) var(--espacio-4);
+    background-color: var(--color-fondo-suave);
+}
+
+.favoritos-vacio h2 {
+    font-family: var(--fuente-titulos);
+    font-size: 1.6rem;
+}
+
+.favoritos-vacio p {
+    color: var(--color-texto-suave);
+    margin-top: var(--espacio-3);
+    margin-bottom: var(--espacio-3);
+}
+
+/* =========================================
+   RESPONSIVE
+   En movil las noticias van de una en una
+   ========================================= */
+@media (max-width: 600px) {
+    .grilla-2 {
+        grid-template-columns: 1fr;
+    }
+
+    .cabecera-fila h1 {
+        font-size: 2rem;
+    }
+}
