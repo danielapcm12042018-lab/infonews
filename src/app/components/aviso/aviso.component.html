@@ -1,0 +1,11 @@
+@if (avisosService.aviso(); as aviso) {
+  <div
+    class="aviso visible"
+    [class.aviso-exito]="aviso.tipo === 'exito'"
+    [class.aviso-error]="aviso.tipo === 'error'"
+    role="status"
+    aria-live="polite"
+  >
+    {{ aviso.mensaje }}
+  </div>
+}

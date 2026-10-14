@@ -1,0 +1,131 @@
+<!-- Bienvenida / hero -->
+<section class="bienvenida">
+  <div class="contenedor">
+    <h1>InfoNews</h1>
+    <p>Periodismo independiente y de profundidad. Actualidad, cultura y análisis, todos los días.</p>
+    <div class="bienvenida-acciones">
+      <a class="btn btn-blanco" routerLink="/noticias">Explorar noticias</a>
+      <a class="btn btn-contorno" routerLink="/contacto">Contactar</a>
+    </div>
+  </div>
+</section>
+
+<!-- Noticias destacadas -->
+<section class="seccion-noticias contenedor">
+  <div class="seccion-cabecera">
+    <h2 class="titulo-seccion">Noticias destacadas</h2>
+    <a class="ver-todo" routerLink="/noticias">Ver todas <span aria-hidden="true">&rarr;</span></a>
+  </div>
+
+  @if (cargando()) {
+    <p class="sin-resultados">Cargando noticias...</p>
+  } @else {
+    <div class="grilla-3">
+      @for (noticia of destacadas(); track noticia.id) {
+        <app-noticia-card [noticia]="noticia" />
+      } @empty {
+        <p class="sin-resultados">No hay noticias destacadas.</p>
+      }
+    </div>
+  }
+</section>
+
+<!-- Lo más leído -->
+<section class="seccion-noticias contenedor">
+  <div class="seccion-cabecera">
+    <h2 class="titulo-seccion">Lo más leído</h2>
+  </div>
+
+  <div class="caja-mas-leido">
+    <h3 class="titulo-caja">Top de la semana</h3>
+    <ul class="lista-mas-leidos">
+      @for (noticia of masLeidas(); track noticia.id; let i = $index) {
+        <li class="mas-leido-item">
+          <span class="mas-leido-numero">{{ i + 1 }}</span>
+          <div class="mas-leido-texto">
+            <span class="mas-leido-cat">{{ noticia.categoria }}</span>
+            <a class="mas-leido-titulo" [routerLink]="['/noticias', noticia.id]">{{ noticia.titulo }}</a>
+          </div>
+        </li>
+      }
+    </ul>
+  </div>
+</section>
+
+<!-- Explorar categorías -->
+<section class="seccion-categorias contenedor">
+  <h2 class="titulo-seccion">Explora por categoría</h2>
+  <p class="subtitulo-seccion">Encuentra las noticias que más te interesan.</p>
+
+  <div class="grilla-categorias">
+    @for (categoria of categorias(); track categoria.nombre) {
+      <a
+        class="card-categoria"
+        [routerLink]="['/noticias']"
+        [queryParams]="{ categoria: categoria.nombre }"
+      >
+        <span class="card-categoria-nombre">{{ categoria.nombre }}</span>
+        <span class="card-categoria-cuenta">{{ categoria.articulos }} artículos</span>
+      </a>
+    }
+  </div>
+</section>
+
+<!-- Testimonios -->
+<section class="seccion-testimonios contenedor">
+  <h2 class="titulo-seccion">Lo que dicen nuestros lectores</h2>
+
+  <div class="grilla-testimonios">
+    @for (testimonio of testimonios(); track testimonio.id) {
+      <blockquote class="testimonio">
+        <p class="testimonio-comentario">{{ testimonio.comentario }}</p>
+        <footer class="testimonio-autor">
+          @if (testimonio.foto) {
+            <img
+              class="testimonio-foto"
+              [src]="'assets/img/' + testimonio.foto"
+              [alt]="testimonio.nombre"
+              loading="lazy"
+              width="48"
+              height="48"
+            />
+          } @else {
+            <span class="testimonio-iniciales" aria-hidden="true">{{ iniciales(testimonio.nombre) }}</span>
+          }
+          <span class="testimonio-datos">
+            <cite class="testimonio-nombre">{{ testimonio.nombre }}</cite>
+            <span class="testimonio-cargo">{{ testimonio.cargo }}</span>
+          </span>
+        </footer>
+      </blockquote>
+    }
+  </div>
+</section>
+
+<!-- Llamada a la acción final -->
+<section class="banner-suscripcion">
+  <div class="contenedor">
+    <h2>¿Quieres estar al día?</h2>
+    <p>Explora todas las noticias o escríbenos: nos encanta leer a nuestra comunidad.</p>
+    <div class="banner-botones">
+      <a class="btn btn-blanco" routerLink="/noticias">Ver todas las noticias</a>
+      <a class="btn btn-contorno" routerLink="/contacto">Contactar</a>
+    </div>
+  </div>
+</section>
+
+<!-- Bloque de contacto -->
+<section class="seccion-contacto contenedor">
+  <h2 class="titulo-seccion">Contacto</h2>
+
+  @if (contactoService.info(); as info) {
+    <div class="contacto-datos">
+      <p><strong>Correo:</strong> <a [href]="'mailto:' + info.correo">{{ info.correo }}</a></p>
+      <p><strong>Teléfono:</strong> <a [href]="'tel:' + info.telefono">{{ info.telefono }}</a></p>
+      <p><strong>Dirección:</strong> {{ info.direccion }}</p>
+      <p><strong>Horario:</strong> {{ info.horario }}</p>
+    </div>
+  }
+
+  <a class="btn btn-primario" routerLink="/contacto">Ir a la página de contacto</a>
+</section>

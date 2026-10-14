@@ -1,0 +1,60 @@
+<header class="header">
+  <div class="contenedor header-contenido">
+    <!-- Logo -->
+    <a class="logo" routerLink="/" (click)="cerrarMenu()">
+      <span class="logo-icono" aria-hidden="true">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M4 22h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v16a2 2 0 0 1-2 2Zm0 0a2 2 0 0 1-2-2v-9c0-1.1.9-2 2-2h2" />
+          <path d="M18 14h-8M15 18h-5M10 6h8v4h-8V6Z" />
+        </svg>
+      </span>
+      InfoNews
+    </a>
+
+    <!-- Botón hamburguesa (solo móvil) -->
+    <button
+      class="btn-menu"
+      type="button"
+      (click)="alternarMenu()"
+      [attr.aria-expanded]="menuAbierto()"
+      [attr.aria-label]="menuAbierto() ? 'Cerrar menú de navegación' : 'Abrir menú de navegación'"
+      aria-controls="menu-principal"
+    >
+      @if (menuAbierto()) {
+        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M18 6 6 18M6 6l12 12" />
+        </svg>
+      } @else {
+        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M4 12h16M4 6h16M4 18h16" />
+        </svg>
+      }
+    </button>
+
+    <!-- Menú de navegación -->
+    <nav id="menu-principal" class="menu" [class.abierto]="menuAbierto()" aria-label="Navegación principal">
+      <a routerLink="/" routerLinkActive="activo" [routerLinkActiveOptions]="{ exact: true }" (click)="cerrarMenu()">Inicio</a>
+      <a routerLink="/noticias" routerLinkActive="activo" (click)="cerrarMenu()">Noticias</a>
+      <a routerLink="/favoritos" routerLinkActive="activo" (click)="cerrarMenu()">
+        Favoritos
+        @if (favoritosService.total() > 0) {
+          <span class="menu-contador" [attr.aria-label]="favoritosService.total() + ' favoritos'">{{ favoritosService.total() }}</span>
+        }
+      </a>
+      <a routerLink="/gestionar" routerLinkActive="activo" (click)="cerrarMenu()">Gestionar</a>
+      <a routerLink="/contacto" routerLinkActive="activo" (click)="cerrarMenu()">Contacto</a>
+    </nav>
+
+    <!-- Buscador -->
+    <form class="buscador" role="search" (submit)="buscar($event)">
+      <input
+        type="search"
+        name="buscar"
+        placeholder="Buscar noticias..."
+        aria-label="Buscar noticias"
+        [value]="textoBusqueda()"
+        (input)="alEscribir($event)"
+      />
+    </form>
+  </div>
+</header>

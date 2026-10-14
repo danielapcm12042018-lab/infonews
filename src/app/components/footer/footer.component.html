@@ -1,0 +1,75 @@
+<footer class="footer">
+  <div class="contenedor footer-contenido">
+    <!-- Información general -->
+    <div class="footer-info">
+      <a class="logo" routerLink="/">
+        <span class="logo-icono" aria-hidden="true">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 22h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v16a2 2 0 0 1-2 2Zm0 0a2 2 0 0 1-2-2v-9c0-1.1.9-2 2-2h2" />
+            <path d="M18 14h-8M15 18h-5M10 6h8v4h-8V6Z" />
+          </svg>
+        </span>
+        InfoNews
+      </a>
+      <p>Periodismo independiente y de profundidad. Actualidad, cultura y análisis, todos los días.</p>
+    </div>
+
+    <!-- Contacto (datos reales de contacto.json) -->
+    <div class="footer-contacto">
+      <h3 class="footer-titulo">Contacto</h3>
+      @if (contactoService.info(); as info) {
+        <p>Correo: <a [href]="'mailto:' + info.correo">{{ info.correo }}</a></p>
+        <p>Teléfono: <a [href]="'tel:' + info.telefono">{{ info.telefono }}</a></p>
+        <p>Dirección: {{ info.direccion }}</p>
+        <p>Horario: {{ info.horario }}</p>
+      } @else {
+        <p>Cargando información de contacto...</p>
+      }
+    </div>
+
+    <!-- Navegación -->
+    <nav class="footer-nav" aria-label="Navegación del pie de página">
+      <h3 class="footer-titulo">Secciones</h3>
+      <a routerLink="/">Inicio</a>
+      <a routerLink="/noticias">Noticias</a>
+      <a routerLink="/favoritos">Favoritos</a>
+      <a routerLink="/gestionar">Gestionar</a>
+      <a routerLink="/contacto">Contacto</a>
+    </nav>
+
+    <!-- Redes sociales -->
+    <div>
+      <h3 class="footer-titulo">Síguenos</h3>
+      <div class="footer-redes">
+        <a href="https://www.instagram.com" target="_blank" rel="noopener" aria-label="Instagram">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
+            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37Z" />
+            <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
+          </svg>
+        </a>
+        <a href="https://www.x.com" target="_blank" rel="noopener" aria-label="X">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M18.9 2H22l-7.5 8.6L23.3 22h-6.9l-5.4-7-6.2 7H1.7l8-9.2L1 2h7.1l4.9 6.4L18.9 2Zm-1.2 18h1.9L7.4 3.9H5.4L17.7 20Z" />
+          </svg>
+        </a>
+        <a href="https://www.youtube.com" target="_blank" rel="noopener" aria-label="YouTube">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M2.5 17a24.12 24.12 0 0 1 0-10 2 2 0 0 1 1.4-1.4 49.56 49.56 0 0 1 16.2 0A2 2 0 0 1 21.5 7a24.12 24.12 0 0 1 0 10 2 2 0 0 1-1.4 1.4 49.55 49.55 0 0 1-16.2 0A2 2 0 0 1 2.5 17" />
+            <path d="m10 15 5-3-5-3z" />
+          </svg>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Franja inferior -->
+  <div class="contenedor footer-legal">
+    <p class="footer-copy">&copy; {{ anio }} InfoNews. Todos los derechos reservados.</p>
+    <nav aria-label="Enlaces legales">
+      <button type="button" (click)="mostrarAviso('Aviso legal')">Aviso legal</button>
+      <button type="button" (click)="mostrarAviso('Política de privacidad')">Privacidad</button>
+      <button type="button" (click)="mostrarAviso('Política de cookies')">Cookies</button>
+    </nav>
+  </div>
+</footer>

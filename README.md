@@ -1,91 +1,59 @@
-# InfoNews
+# Infonews
 
-Plataforma web de noticias tipo periódico, desarrollada como entrega del módulo de Front-end.
+This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 22.2.2.
 
-## Tecnologías
+## Development server
 
-- HTML5
-- CSS3
-- JavaScript (vanilla, sin frameworks ni librerías)
-- JSON local (archivo `assets/data/noticias.json`)
-- localStorage (para favoritos y datos del usuario)
+To start a local development server, run:
 
-## Páginas
-
-- **Inicio** (`index.html`): muestra las noticias destacadas y un resumen del portal.
-- **Noticias** (`pages/noticias.html`): listado de todas las noticias con buscador y filtro por categoría.
-- **Detalle** (`pages/detalle.html`): muestra el contenido completo de una noticia a partir de su identificador en la URL.
-- **Favoritos** (`pages/favoritos.html`): guarda y muestra las noticias marcadas como favoritas por el usuario.
-- **Gestionar** (`pages/gestionar.html`): permite crear y eliminar noticias.
-- **Contacto** (`pages/contacto.html`): formulario de contacto con validación de los campos.
-
-## Cómo ejecutar el proyecto
-
-El proyecto usa `fetch` para leer el archivo `noticias.json`, por eso **no se debe abrir con doble clic** sobre `index.html`: al abrirlo con `file://` el navegador bloquea las peticiones y el sitio se queda sin datos.
-
-Opción recomendada: **Live Server de VS Code**
-
-1. Instala la extensión *Live Server* en VS Code.
-2. Abre la carpeta del proyecto en VS Code.
-3. Haz clic derecho sobre `index.html` y elige **Open with Live Server**.
-
-Alternativa con Python (abre http://localhost:8000):
-
-```
-python -m http.server 8000
+```bash
+ng serve
 ```
 
-## Estructura de carpetas
+Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
 
-```
-InfoNews/
-├── index.html
-├── README.md
-├── .gitignore
-├── pages/
-│   ├── noticias.html
-│   ├── detalle.html
-│   ├── favoritos.html
-│   ├── gestionar.html
-│   └── contacto.html
-└── assets/
-    ├── css/
-    │   ├── base.css
-    │   ├── layout.css
-    │   ├── components.css
-    │   └── pages/
-    │       ├── home.css
-    │       ├── noticias.css
-    │       ├── detalle.css
-    │       ├── favoritos.css
-    │       ├── gestionar.css
-    │       └── contacto.css
-    ├── js/
-    │   ├── main.js
-    │   ├── components.js
-    │   ├── storage.js
-    │   ├── data.js
-    │   ├── render.js
-    │   ├── validators.js
-    │   └── pages/
-    │       ├── home.js
-    │       ├── noticias.js
-    │       ├── detalle.js
-    │       ├── favoritos.js
-    │       ├── gestionar.js
-    │       └── contacto.js
-    ├── data/
-    │   └── noticias.json
-    └── img/
-        └── .gitkeep
+## Code scaffolding
+
+Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+
+```bash
+ng generate component component-name
 ```
 
-## Enlaces
+For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
 
-URL del repositorio:
+```bash
+ng generate --help
+```
 
-URL del despliegue:
+## Building
 
-## Autor
+To build the project run:
 
-Nombre:
+```bash
+ng build
+```
+
+This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+
+## Running unit tests
+
+To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
+
+```bash
+ng test
+```
+
+## Running end-to-end tests
+
+For end-to-end (e2e) testing, run:
+
+```bash
+ng e2e
+```
+
+Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+
+## Additional Resources
+
+For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.

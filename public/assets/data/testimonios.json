@@ -1,0 +1,32 @@
+{
+  "testimonios": [
+    {
+      "id": 1,
+      "nombre": "Marta Jiménez",
+      "cargo": "Profesora de secundaria",
+      "comentario": "InfoNews es lo primero que leo por la mañana. Los análisis son rigurosos y se nota que hay trabajo de investigación detrás de cada reportaje.",
+      "foto": "hn_ciencia.jpg"
+    },
+    {
+      "id": 2,
+      "nombre": "Álvaro Núñez",
+      "cargo": "Analista financiero",
+      "comentario": "Uso la sección de economía a diario. Sus datos y gráficos me ayudan a entender los mercados sin ruido ni sensacionalismo.",
+      "foto": "hn_economia_finanzas.jpg"
+    },
+    {
+      "id": 3,
+      "nombre": "Lucía Ferrer",
+      "cargo": "Estudiante de periodismo",
+      "comentario": "Me gusta que den voz a temas de ciencia y sostenibilidad que otros medios ignoran. Es una fuente de referencia para mis trabajos.",
+      "foto": "hn_sostenibilidad_ambiente.jpg"
+    },
+    {
+      "id": 4,
+      "nombre": "Sergio Cabrera",
+      "cargo": "Lector suscriptor",
+      "comentario": "La suscripción vale cada céntimo: sin publicidad intrusiva y con reportajes de fondo que se leen con calma y confianza.",
+      "foto": "h_internacional.jpg"
+    }
+  ]
+}
