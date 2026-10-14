@@ -58,24 +58,6 @@
     margin-bottom: var(--espacio-4);
 }
 
-.ver-todo {
-    color: var(--color-primario);
-    font-weight: 600;
-    font-size: 0.85rem;
-    white-space: nowrap;
-}
-
-.ver-todo:hover {
-    text-decoration: underline;
-}
-
-/* --- Grilla de tarjetas --- */
-.grilla-3 {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: var(--espacio-4);
-}
-
 /* --- Explorar categorías --- */
 .grilla-categorias {
     display: grid;
@@ -223,8 +205,8 @@
    Responsive
    ========================================================================= */
 @media (max-width: 900px) {
-    .grilla-3 {
-        grid-template-columns: repeat(2, 1fr);
+    .grilla-testimonios {
+        grid-template-columns: 1fr;
     }
 }
 
@@ -233,7 +215,6 @@
         font-size: 2rem;
     }
 
-    .grilla-3,
     .grilla-testimonios,
     .contacto-datos {
         grid-template-columns: 1fr;

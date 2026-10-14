@@ -46,7 +46,7 @@ export class HeaderComponent {
     const texto = this.textoBusqueda().trim();
     this.cerrarMenu();
     this.router.navigate(['/noticias'], {
-      queryParams: texto ? { buscar: texto } : {},
+      queryParams: texto ? { q: texto } : {},
     });
   }
 }

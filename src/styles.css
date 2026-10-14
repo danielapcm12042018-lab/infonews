@@ -419,6 +419,7 @@ main {
    BADGE DE CATEGORIA
    ========================================= */
 .badge {
+    display: inline-block;
     background-color: var(--color-primario);
     color: var(--color-blanco);
     font-size: 0.7rem;
@@ -673,10 +674,49 @@ main {
 }
 
 /* =========================================
+   UTILIDADES COMPARTIDAS ENTRE PÁGINAS
+   ========================================= */
+
+/* Migas de pan (listado y detalle) */
+.migas {
+    display: flex;
+    gap: var(--espacio-2);
+    font-size: 0.8rem;
+    color: var(--color-texto-suave);
+}
+
+.migas a:hover {
+    color: var(--color-primario);
+}
+
+/* Grilla de tres columnas (relacionadas, etc.) */
+.grilla-3 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--espacio-4);
+}
+
+/* Enlace "ver todo" */
+.ver-todo {
+    color: var(--color-primario);
+    font-weight: 600;
+    font-size: 0.85rem;
+    white-space: nowrap;
+}
+
+.ver-todo:hover {
+    text-decoration: underline;
+}
+
+/* =========================================
    RESPONSIVE GLOBAL
    ========================================= */
 @media (max-width: 900px) {
     .footer-contenido {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .grilla-3 {
         grid-template-columns: repeat(2, 1fr);
     }
 }
@@ -722,5 +762,11 @@ main {
     .footer-legal {
         flex-direction: column;
         text-align: center;
+    }
+}
+
+@media (max-width: 600px) {
+    .grilla-3 {
+        grid-template-columns: 1fr;
     }
 }

@@ -70,6 +70,11 @@ export class NoticiasService {
     });
   }
 
+  /** Vuelve a descargar noticias.json (botón "Reintentar" de la interfaz). */
+  recargar(): void {
+    this.cargar();
+  }
+
   /** Todas las noticias visibles (sin ordenar). */
   obtenerTodas(): Noticia[] {
     return this.noticias();

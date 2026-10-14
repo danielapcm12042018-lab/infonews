@@ -20,7 +20,7 @@ export const routes: Routes = [
   },
   {
     path: 'noticias/:id',
-    title: 'InfoNews · Noticia',
+    // Sin title fijo: el detalle pone el título de la noticia con el Title service.
     loadComponent: () =>
       import('./pages/noticia-detalle/noticia-detalle.component').then(
         (m) => m.NoticiaDetalleComponent,

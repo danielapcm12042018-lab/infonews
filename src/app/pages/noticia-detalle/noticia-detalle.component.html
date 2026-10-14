@@ -1,0 +1,153 @@
+<!-- Navegación superior: migas y enlace para volver -->
+<div class="contenedor detalle-nav">
+  <nav class="migas" aria-label="Migas de pan">
+    <a routerLink="/">Inicio</a>
+    <span aria-hidden="true">&rsaquo;</span>
+    <a routerLink="/noticias">Noticias</a>
+    @if (noticia(); as noticiaActual) {
+      <span aria-hidden="true">&rsaquo;</span>
+      <span>{{ noticiaActual.categoria | uppercase }}</span>
+    }
+  </nav>
+
+  <a class="volver" routerLink="/noticias">&larr; Volver al listado</a>
+</div>
+
+@if (cargando()) {
+  <p class="contenedor sin-resultados">Cargando noticia...</p>
+} @else if (error()) {
+  <div class="contenedor sin-resultados">
+    <p>{{ error() }}</p>
+    <button class="btn btn-primario" type="button" (click)="reintentar()">Reintentar</button>
+  </div>
+} @else if (noticia(); as articulo) {
+  <!-- Cabecera del artículo -->
+  <header class="contenedor articulo-cabecera">
+    <span class="badge">{{ articulo.categoria }}</span>
+    <h1 class="articulo-titulo">{{ articulo.titulo }}</h1>
+    <p class="articulo-subtitulo">{{ articulo.subtitulo }}</p>
+  </header>
+
+  <!-- Imagen principal -->
+  <figure class="contenedor articulo-figura">
+    <img
+      [src]="'assets/img/' + articulo.imagen"
+      [alt]="articulo.titulo"
+      width="1200"
+      height="480"
+    />
+    <figcaption>{{ articulo.pieFoto }}</figcaption>
+  </figure>
+
+  <!-- Acciones, cuerpo del artículo -->
+  <div class="contenedor articulo-layout">
+    <aside class="articulo-acciones">
+      <button
+        class="btn-favorito btn-favorito-grande"
+        type="button"
+        [class.activo]="esFavorito()"
+        [attr.aria-pressed]="esFavorito()"
+        [attr.aria-label]="esFavorito() ? 'Quitar de favoritos' : 'Guardar en favoritos'"
+        (click)="alternarFavorito()"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="m19 21-7-4-7 4V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16z" />
+        </svg>
+      </button>
+
+      <a
+        class="btn btn-primario btn-contactar"
+        [routerLink]="['/contacto']"
+        [queryParams]="{ asunto: 'Consulta sobre: ' + articulo.titulo }"
+      >
+        Contactar
+      </a>
+    </aside>
+
+    <article class="articulo-cuerpo">
+      <!-- Autor y datos -->
+      <div class="articulo-meta">
+        <div class="autor">
+          <span class="autor-avatar" aria-hidden="true">{{ iniciales(articulo.autor) }}</span>
+          <div>
+            <strong>{{ articulo.autor }}</strong>
+            <span>{{ articulo.cargoAutor }}</span>
+          </div>
+        </div>
+
+        <div class="meta-datos">
+          <span class="meta-dato">{{ articulo.fecha | date: 'd MMM, y' }}</span>
+          <span class="meta-dato">{{ articulo.visitas | number }} visitas</span>
+          <span class="meta-dato">{{ articulo.lecturaMin }} min de lectura</span>
+          <span class="meta-dato">{{ articulo.comentarios }} comentarios</span>
+        </div>
+      </div>
+
+      <!-- Texto completo: párrafos, cita y puntos clave -->
+      <div class="articulo-texto">
+        @for (parrafo of parrafosIniciales(); track $index) {
+          <p>{{ parrafo }}</p>
+        }
+
+        @if (articulo.cita; as cita) {
+          <blockquote class="articulo-cita">
+            <p class="cita-texto">{{ cita.texto }}</p>
+            <cite class="cita-autor">— {{ cita.autor }}</cite>
+          </blockquote>
+        }
+
+        @if (articulo.puntosClave.length) {
+          <div class="puntos-clave">
+            <h3 class="puntos-titulo">Puntos clave del análisis</h3>
+            <ul>
+              @for (punto of articulo.puntosClave; track $index) {
+                <li>{{ punto }}</li>
+              }
+            </ul>
+          </div>
+        }
+
+        @for (parrafo of parrafosRestantes(); track $index) {
+          <p>{{ parrafo }}</p>
+        }
+      </div>
+
+      <!-- Etiquetas -->
+      @if (articulo.tags.length) {
+        <div class="articulo-tags">
+          @for (tag of articulo.tags; track tag) {
+            <span class="tag">#{{ tag }}</span>
+          }
+        </div>
+      }
+    </article>
+  </div>
+
+  <!-- Noticias relacionadas -->
+  @if (relacionadas().length) {
+    <section class="relacionadas">
+      <div class="contenedor">
+        <div class="relacionadas-cabecera">
+          <div>
+            <h2>Noticias relacionadas</h2>
+            <p>Continúa leyendo sobre los temas que más te interesan.</p>
+          </div>
+          <a class="ver-todo" routerLink="/noticias">Ver todas las noticias &rsaquo;</a>
+        </div>
+
+        <div class="grilla-3">
+          @for (relacionada of relacionadas(); track relacionada.id) {
+            <app-noticia-card [noticia]="relacionada" />
+          }
+        </div>
+      </div>
+    </section>
+  }
+} @else {
+  <!-- Id inexistente o no válido -->
+  <section class="contenedor noticia-no-encontrada">
+    <h1>Noticia no encontrada</h1>
+    <p>La noticia que buscas no existe o fue eliminada.</p>
+    <a class="btn btn-primario" routerLink="/noticias">Volver a noticias</a>
+  </section>
+}

@@ -1,0 +1,115 @@
+<!-- Cabecera de la página: migas, título y buscador -->
+<section class="cabecera-pagina">
+  <div class="contenedor">
+    <nav class="migas" aria-label="Migas de pan">
+      <a routerLink="/">Inicio</a>
+      <span aria-hidden="true">&rsaquo;</span>
+      <span>Noticias</span>
+    </nav>
+
+    <div class="cabecera-fila">
+      <div>
+        <h1>Archivo de Noticias</h1>
+        <p>Explore nuestro catálogo completo de periodismo riguroso y análisis profundo sobre los temas que definen nuestro tiempo.</p>
+      </div>
+      <input
+        type="search"
+        class="campo-buscar"
+        placeholder="Buscar artículos..."
+        aria-label="Buscar artículos"
+        [value]="textoBusqueda()"
+        (input)="alBuscar($event)"
+      />
+    </div>
+  </div>
+</section>
+
+<!-- Barra de filtros por categoría -->
+<div class="barra-filtros">
+  <div class="contenedor filtros-fila">
+    <span class="filtros-etiqueta">Filtrar</span>
+    <div class="filtros-lista">
+      @for (cat of categorias(); track cat) {
+        <button
+          class="filtro"
+          type="button"
+          [class.activo]="categoria() === cat"
+          (click)="cambiarCategoria(cat)"
+        >
+          {{ cat }}
+        </button>
+      }
+    </div>
+  </div>
+</div>
+
+<!-- Contenido: listado principal y barra lateral -->
+<div class="contenedor contenido-listado">
+  <section class="listado-principal">
+    <div class="resultado-barra">
+      <p class="contador-resultados" aria-live="polite">
+        {{ total() }} {{ total() === 1 ? 'noticia encontrada' : 'noticias encontradas' }}
+      </p>
+      <button class="btn-limpiar" type="button" (click)="limpiarFiltros()">Limpiar filtros</button>
+    </div>
+
+    @if (cargando()) {
+      <p class="sin-resultados">Cargando noticias...</p>
+    } @else if (error()) {
+      <div class="sin-resultados">
+        <p>{{ error() }}</p>
+        <button class="btn btn-primario" type="button" (click)="reintentar()">Reintentar</button>
+      </div>
+    } @else if (total() === 0) {
+      <div class="sin-resultados">
+        <p>No se encontraron noticias con los filtros seleccionados.</p>
+        <button class="btn btn-primario" type="button" (click)="limpiarFiltros()">Limpiar filtros</button>
+      </div>
+    } @else {
+      <div class="grilla-2">
+        @for (noticia of noticiasFiltradas(); track noticia.id) {
+          <app-noticia-card [noticia]="noticia" />
+        }
+      </div>
+    }
+  </section>
+
+  <aside class="listado-lateral">
+    <!-- Lo más leído -->
+    <section class="caja-mas-leido">
+      <h2 class="titulo-caja">Lo más leído</h2>
+      <ol class="lista-mas-leidos">
+        @for (noticia of masLeidas(); track noticia.id; let i = $index) {
+          <li class="mas-leido-item">
+            <span class="mas-leido-numero">{{ i + 1 }}</span>
+            <div class="mas-leido-texto">
+              <span class="mas-leido-cat">{{ noticia.categoria }}</span>
+              <a class="mas-leido-titulo" [routerLink]="['/noticias', noticia.id]">{{ noticia.titulo }}</a>
+            </div>
+          </li>
+        }
+      </ol>
+    </section>
+
+    <!-- Temas populares (etiquetas más frecuentes) -->
+    @if (temasPopulares().length) {
+      <section class="caja-temas">
+        <h2 class="titulo-caja">Temas populares</h2>
+        <div class="lista-temas">
+          @for (tag of temasPopulares(); track tag) {
+            <button class="tema" type="button" (click)="elegirTema(tag)">{{ tag }}</button>
+          }
+        </div>
+      </section>
+    }
+  </aside>
+</div>
+
+<!-- Pensamiento del día -->
+<section class="pensamiento">
+  <div class="contenedor">
+    <p class="pensamiento-etiqueta">Pensamiento del día</p>
+    <blockquote>"El periodismo es lo que alguien no quiere que se publique. Todo lo demás es relaciones públicas."</blockquote>
+    <p class="pensamiento-autor">— George Orwell</p>
+  </div>
+</section>
