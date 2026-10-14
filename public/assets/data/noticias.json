@@ -296,6 +296,161 @@
       "puntosClave": [],
       "tags": ["Mayas", "Arqueología", "Cultura", "Selva"],
       "destacada": false
+    },
+    {
+      "id": 13,
+      "titulo": "Salud mental en el trabajo: nuevas guías para frenar el desgaste profesional",
+      "subtitulo": "Empresas y especialistas adoptan medidas contra el estrés crónico y el agotamiento.",
+      "categoria": "Salud",
+      "autor": "Carmen Ruiz",
+      "cargoAutor": "Reportera de Salud",
+      "fecha": "2026-10-13",
+      "lecturaMin": 6,
+      "visitas": 4210,
+      "comentarios": 18,
+      "imagen": "h_salud.jpg",
+      "pieFoto": "Personal sanitario revisa datos clínicos en un laboratorio.",
+      "descripcion": "Nuevas guías recomiendan pausas programadas, apoyo psicológico y horarios flexibles para reducir el agotamiento laboral.",
+      "contenido": [
+        "El agotamiento profesional ha dejado de ser una queja menor para convertirse en un problema de salud pública. Las nuevas guías elaboradas por equipos de psicología laboral recomiendan a las empresas medir la carga de trabajo y detectar a tiempo las señales de estrés crónico.",
+        "Entre las medidas propuestas destacan las pausas programadas, el acceso gratuito a apoyo psicológico y la flexibilidad de horarios. Los especialistas insisten en que no basta con talleres puntuales: el cambio debe afectar a la organización del trabajo y a los objetivos que se exigen a cada persona.",
+        "Los sindicatos reclaman que estas recomendaciones se conviertan en obligaciones verificables. Las empresas que ya aplican los programas aseguran que la rotación de personal ha bajado y que el clima laboral ha mejorado de forma notable."
+      ],
+      "cita": {
+        "texto": "El bienestar de los trabajadores no es un gasto, es la base sobre la que se sostiene cualquier equipo que quiera durar.",
+        "autor": "Dra. Alba Serrano, psicóloga laboral"
+      },
+      "puntosClave": [
+        "El agotamiento profesional se trata ya como un problema de salud pública.",
+        "Las guías piden medir la carga de trabajo y detectar el estrés crónico a tiempo.",
+        "Las empresas que aplican los programas registran menos rotación de personal."
+      ],
+      "tags": ["Salud Mental", "Bienestar", "Trabajo", "Prevención"],
+      "destacada": false
+    },
+    {
+      "id": 14,
+      "titulo": "El deporte femenino rompe récords de audiencia en la nueva temporada",
+      "subtitulo": "Las competiciones femeninas llenan estadios y firman mejores contratos de televisión.",
+      "categoria": "Deportes",
+      "autor": "Andrés Molina",
+      "cargoAutor": "Redactor de Deportes",
+      "fecha": "2026-10-12",
+      "lecturaMin": 5,
+      "visitas": 3580,
+      "comentarios": 24,
+      "imagen": "hn_cultura.jpg",
+      "pieFoto": "Público llena las gradas durante una competición deportiva.",
+      "descripcion": "Las ligas femeninas encadenan llenos históricos y los operadores de televisión pujan por los derechos de emisión.",
+      "contenido": [
+        "La nueva temporada ha confirmado una tendencia que venía cocinándose desde hace años: el deporte femenino ya no es una promesa, sino un negocio en plena expansión. Varios estadios han colgado el cartel de completo por primera vez en su historia.",
+        "Las televisiones han reaccionado subiendo sus ofertas por los derechos de emisión, mientras los patrocinadores multiplican su presencia en las camisetas y en los estadios. Los clubes destinan ese dinero a mejorar instalaciones y a profesionalizar sus canteras.",
+        "Las jugadoras reclaman que este crecimiento se traduzca en salarios y condiciones equiparables a los del deporte masculino. Las federaciones admiten que queda camino por recorrer, pero celebran el cambio de tendencia en las gradas y en las audiencias."
+      ],
+      "cita": {
+        "texto": "Cuando las gradas se llenan, deja de haber excusas: el talento siempre estuvo ahí, lo que faltaba era la oportunidad.",
+        "autor": "Nadia Ferrer, ex deportista profesional"
+      },
+      "puntosClave": [
+        "Varios estadios han registrado llenos históricos en la nueva temporada.",
+        "Las televisiones pujan al alza por los derechos de emisión.",
+        "Las jugadoras reclaman salarios y condiciones equiparables al deporte masculino."
+      ],
+      "tags": ["Deporte", "Igualdad", "Audiencia", "Competición"],
+      "destacada": false
+    },
+    {
+      "id": 15,
+      "titulo": "La confianza en los medios: por qué el periodismo pausado importa más que nunca",
+      "subtitulo": "En plena cultura de la inmediatez, verificar y dar contexto vuelve a marcar la diferencia.",
+      "categoria": "Opinión",
+      "autor": "Daniel Soto",
+      "cargoAutor": "Columnista de Opinión",
+      "fecha": "2026-10-11",
+      "lecturaMin": 7,
+      "visitas": 2960,
+      "comentarios": 33,
+      "imagen": "h_internacional.jpg",
+      "pieFoto": "Representantes de distintos medios durante un debate sobre información.",
+      "descripcion": "La carrera por publicar primero erosiona la confianza del público. Frente a ello, el periodismo pausado reivindica el contexto y la verificación.",
+      "contenido": [
+        "La velocidad se ha convertido en la medida de casi todo. Los titulares compiten por los primeros segundos y, en esa carrera, el contexto suele ser la primera víctima. El resultado es un público cada vez más expuesto a datos sin comprobar y a conclusiones precipitadas.",
+        "Frente a esa dinámica, el periodismo pausado propone volver a lo básico: comprobar cada dato, dar voz a todas las partes y explicar por qué importa lo que se cuenta. No es una postura nostálgica, sino una respuesta práctica a un problema medible: la pérdida de confianza en los medios.",
+        "Recuperar esa confianza exige transparencia. Explicar los métodos, corregir los errores a la vista de todos y separar con claridad la información de la opinión son pasos que ningún medio puede permitirse ignorar si quiere seguir siendo relevante."
+      ],
+      "cita": {
+        "texto": "La prisa es un enemigo silencioso de la verdad; el contexto es su mejor aliado.",
+        "autor": "Laura Medina, profesora de Periodismo"
+      },
+      "puntosClave": [
+        "La carrera por publicar primero erosiona la confianza del público.",
+        "El periodismo pausado prioriza verificación, contexto y pluralidad.",
+        "Corregir a la vista de todos y separar información de opinión son claves para recuperar credibilidad."
+      ],
+      "tags": ["Opinión", "Periodismo", "Medios", "Desinformación"],
+      "destacada": false
+    },
+    {
+      "id": 16,
+      "titulo": "Moda sostenible: los tejidos reciclados llegan a las pasarelas",
+      "subtitulo": "Las firmas apuestan por materiales reutilizados y cadenas de producción transparentes.",
+      "categoria": "Moda",
+      "autor": "Marta Nieto",
+      "cargoAutor": "Periodista de Moda",
+      "fecha": "2026-10-10",
+      "lecturaMin": 5,
+      "visitas": 2740,
+      "comentarios": 15,
+      "imagen": "contacto.jpg",
+      "pieFoto": "Público y profesionales durante una presentación de moda.",
+      "descripcion": "El sector textil rediseña sus colecciones con fibras recicladas y etiquetas que detallan el origen de cada prenda.",
+      "contenido": [
+        "La sostenibilidad ha dejado de ser un adorno en el discurso de las marcas para convertirse en una exigencia del público. Las nuevas colecciones incorporan fibras recicladas y tintes de bajo impacto, y cada vez más firmas publican el origen exacto de sus materiales.",
+        "El cambio no solo afecta al diseño. Las empresas trabajan con talleres locales para reducir la huella del transporte y diseñan prendas pensadas para durar varias temporadas, en lugar de renovarse cada pocas semanas.",
+        "Los compradores responden con interés, pero también con escepticismo. Las asociaciones de consumidores piden que las etiquetas de sostenibilidad estén certificadas de forma independiente para evitar el lavado de imagen."
+      ],
+      "cita": {
+        "texto": "La prenda más sostenible es la que ya tienes en el armario; la segunda, la que puedes reciclar sin culpa.",
+        "autor": "Irene Coll, diseñadora textil"
+      },
+      "puntosClave": [
+        "Las colecciones incorporan fibras recicladas y tintes de bajo impacto.",
+        "Las firmas publican cada vez más el origen de sus materiales.",
+        "Los consumidores piden certificaciones independientes frente al lavado de imagen."
+      ],
+      "tags": ["Moda", "Sostenibilidad", "Reciclaje", "Consumo"],
+      "destacada": false
+    },
+    {
+      "id": 17,
+      "titulo": "Cocina de proximidad: los restaurantes apuestan por el producto local",
+      "subtitulo": "Chefs y productores acortan la cadena de suministro y transforman sus cartas.",
+      "categoria": "Gastronomía",
+      "autor": "Raquel Ibáñez",
+      "cargoAutor": "Crítica Gastronómica",
+      "fecha": "2026-10-09",
+      "lecturaMin": 6,
+      "visitas": 3120,
+      "comentarios": 19,
+      "imagen": "n_tecnologia.jpg",
+      "pieFoto": "Cultivos frescos listos para su venta a restaurantes locales.",
+      "descripcion": "Los restaurantes rediseñan sus cartas con productos de temporada y proveedores cercanos para ganar frescura y reducir costes.",
+      "contenido": [
+        "La cocina de proximidad se ha instalado en las cartas de medio país. Los chefs buscan proveedores a pocos kilómetros, ajustan los menús a la temporada y recuperan variedades que casi habían desaparecido de los mercados.",
+        "El modelo tiene ventajas claras: el producto llega más fresco, se reduce el gasto en transporte y el comensal conoce mejor lo que come. A cambio, exige flexibilidad, porque la disponibilidad de cada ingrediente cambia con el tiempo.",
+        "Los productores locales celebran el acuerdo, aunque advierten de que el apoyo debe mantenerse durante todo el año. Los restaurantes que ya trabajan así aseguran que la fidelidad de sus clientes ha crecido y que el desperdicio de comida ha bajado."
+      ],
+      "cita": {
+        "texto": "Un plato empieza mucho antes de la cocina: empieza en el campo y en las manos de quien lo cultiva.",
+        "autor": "Tomás Aguirre, chef y productor"
+      },
+      "puntosClave": [
+        "Los restaurantes ajustan sus menús a la temporada y a proveedores cercanos.",
+        "El producto local llega más fresco y reduce el gasto en transporte.",
+        "Los chefs aseguran que la fidelidad del cliente crece y baja el desperdicio."
+      ],
+      "tags": ["Gastronomía", "Producto Local", "Restaurantes", "Sostenibilidad"],
+      "destacada": false
     }
   ]
 }
