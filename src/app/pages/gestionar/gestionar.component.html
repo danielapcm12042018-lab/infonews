@@ -1,0 +1,205 @@
+<!-- Cabecera: migas de pan, título y botón de restablecer -->
+<section class="cabecera-pagina">
+  <div class="contenedor">
+    <nav class="migas" aria-label="Migas de pan">
+      <a routerLink="/">Inicio</a>
+      <span aria-hidden="true">›</span>
+      <span>Gestionar</span>
+    </nav>
+
+    <div class="cabecera-fila">
+      <div>
+        <h1>Gestionar noticias</h1>
+        <p>Crea nuevas noticias o elimina las que ya no quieras mostrar.</p>
+      </div>
+
+      <button class="btn btn-contorno-oscuro" type="button" (click)="restablecer()">
+        Restablecer datos originales
+      </button>
+    </div>
+  </div>
+</section>
+
+<div class="contenedor gestionar-layout">
+  <!-- Formulario de creación -->
+  <section class="gestionar-formulario">
+    <h2>Crear noticia</h2>
+
+    <form #formularioNoticia [formGroup]="formulario" (ngSubmit)="enviar()" novalidate>
+      <div class="campo-grupo">
+        <label for="titulo">Título</label>
+        <input
+          id="titulo"
+          name="titulo"
+          type="text"
+          formControlName="titulo"
+          placeholder="Título de la noticia"
+          [class.campo-error]="mostrarError('titulo')"
+          [attr.aria-invalid]="mostrarError('titulo')"
+          [attr.aria-describedby]="mostrarError('titulo') ? 'error-titulo' : null"
+        />
+        @if (mostrarError('titulo')) {
+          <span class="error-texto" id="error-titulo">{{ mensajeError('titulo') }}</span>
+        }
+      </div>
+
+      <div class="campo-grupo">
+        <label for="subtitulo">Subtítulo (opcional)</label>
+        <input
+          id="subtitulo"
+          name="subtitulo"
+          type="text"
+          formControlName="subtitulo"
+          placeholder="Una frase que resuma la noticia"
+        />
+      </div>
+
+      <div class="campo-fila">
+        <div class="campo-grupo">
+          <label for="categoria">Categoría</label>
+          <select
+            id="categoria"
+            name="categoria"
+            formControlName="categoria"
+            [class.campo-error]="mostrarError('categoria')"
+            [attr.aria-invalid]="mostrarError('categoria')"
+            [attr.aria-describedby]="mostrarError('categoria') ? 'error-categoria' : null"
+          >
+            <option value="">Selecciona una categoría</option>
+            @for (categoria of categorias(); track categoria) {
+              <option [value]="categoria">{{ categoria }}</option>
+            }
+          </select>
+          @if (mostrarError('categoria')) {
+            <span class="error-texto" id="error-categoria">{{ mensajeError('categoria') }}</span>
+          }
+        </div>
+
+        <div class="campo-grupo">
+          <label for="autor">Autor</label>
+          <input
+            id="autor"
+            name="autor"
+            type="text"
+            formControlName="autor"
+            placeholder="Ej. Ana López"
+            [class.campo-error]="mostrarError('autor')"
+            [attr.aria-invalid]="mostrarError('autor')"
+            [attr.aria-describedby]="mostrarError('autor') ? 'error-autor' : null"
+          />
+          @if (mostrarError('autor')) {
+            <span class="error-texto" id="error-autor">{{ mensajeError('autor') }}</span>
+          }
+        </div>
+      </div>
+
+      <div class="campo-grupo">
+        <label for="imagen">Imagen</label>
+        <select
+          id="imagen"
+          name="imagen"
+          formControlName="imagen"
+          [class.campo-error]="mostrarError('imagen')"
+          [attr.aria-invalid]="mostrarError('imagen')"
+          [attr.aria-describedby]="mostrarError('imagen') ? 'error-imagen' : null"
+        >
+          <option value="">Selecciona una imagen</option>
+          @for (archivo of imagenes; track archivo) {
+            <option [value]="archivo">{{ nombreImagen(archivo) }}</option>
+          }
+        </select>
+        @if (imagenSeleccionada()) {
+          <img
+            class="imagen-previa"
+            [src]="'assets/img/' + imagenSeleccionada()"
+            alt="Vista previa de la imagen elegida"
+          />
+        }
+        @if (mostrarError('imagen')) {
+          <span class="error-texto" id="error-imagen">{{ mensajeError('imagen') }}</span>
+        }
+      </div>
+
+      <div class="campo-grupo">
+        <label for="descripcion">Descripción breve</label>
+        <textarea
+          id="descripcion"
+          name="descripcion"
+          rows="3"
+          formControlName="descripcion"
+          placeholder="Resumen que se verá en las tarjetas"
+          [class.campo-error]="mostrarError('descripcion')"
+          [attr.aria-invalid]="mostrarError('descripcion')"
+          [attr.aria-describedby]="'contador-descripcion' + (mostrarError('descripcion') ? ' error-descripcion' : '')"
+        ></textarea>
+        <small class="contador" id="contador-descripcion">{{ descripcionLongitud().length }}/160</small>
+        @if (mostrarError('descripcion')) {
+          <span class="error-texto" id="error-descripcion">{{ mensajeError('descripcion') }}</span>
+        }
+      </div>
+
+      <div class="campo-grupo">
+        <label for="contenido">Contenido</label>
+        <textarea
+          id="contenido"
+          name="contenido"
+          rows="8"
+          formControlName="contenido"
+          placeholder="Escribe el texto de la noticia. Separa los párrafos con una línea en blanco."
+          [class.campo-error]="mostrarError('contenido')"
+          [attr.aria-invalid]="mostrarError('contenido')"
+          [attr.aria-describedby]="mostrarError('contenido') ? 'error-contenido' : null"
+        ></textarea>
+        @if (mostrarError('contenido')) {
+          <span class="error-texto" id="error-contenido">{{ mensajeError('contenido') }}</span>
+        }
+      </div>
+
+      <button class="btn btn-primario btn-ancho" type="submit">Publicar noticia</button>
+    </form>
+  </section>
+
+  <!-- Listado de noticias publicadas -->
+  <section class="gestionar-lista">
+    <h2>Noticias publicadas</h2>
+    <p class="gestionar-contador">
+      {{ total() }} {{ total() === 1 ? 'noticia en total' : 'noticias en total' }}
+    </p>
+
+    <div class="lista-gestion">
+      @for (noticia of noticias(); track noticia.id) {
+        <article class="item-gestion">
+          <img
+            [src]="'assets/img/' + noticia.imagen"
+            [alt]="noticia.titulo"
+            width="96"
+            height="72"
+            loading="lazy"
+          />
+
+          <div class="item-gestion-texto">
+            <span class="item-gestion-cat">{{ noticia.categoria }}</span>
+            @if (esCreada(noticia)) {
+              <span class="insignia-creada">Creada por ti</span>
+            }
+            <h3>
+              <a [routerLink]="['/noticias', noticia.id]">{{ noticia.titulo }}</a>
+            </h3>
+            <p class="item-gestion-meta">{{ noticia.autor }} · {{ noticia.fecha | date: 'd MMM y' }}</p>
+          </div>
+
+          <button
+            class="btn-eliminar"
+            type="button"
+            [attr.aria-label]="'Eliminar ' + noticia.titulo"
+            (click)="eliminar(noticia)"
+          >
+            Eliminar
+          </button>
+        </article>
+      } @empty {
+        <p class="sin-resultados">No hay noticias. Crea una o restablece las originales.</p>
+      }
+    </div>
+  </section>
+</div>

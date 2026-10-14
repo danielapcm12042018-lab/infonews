@@ -86,6 +86,12 @@ export class NoticiasService {
     return this.noticias().find((noticia) => noticia.id === idNumero);
   }
 
+  /** Indica si una noticia fue creada por el usuario (no viene del JSON). */
+  esCreada(id: number | string): boolean {
+    const idNumero = Number(id);
+    return this.noticiasCreadas().some((noticia) => noticia.id === idNumero);
+  }
+
   /** Noticias marcadas como destacadas. */
   obtenerDestacadas(): Noticia[] {
     return this.noticias().filter((noticia) => noticia.destacada);
