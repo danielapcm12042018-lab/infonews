@@ -654,7 +654,7 @@ main {
 .mas-leido-numero {
   font-size: 1.5rem;
   font-weight: 700;
-  color: #93c5fd;
+  color: var(--color-primario);
   line-height: 1;
 }
 

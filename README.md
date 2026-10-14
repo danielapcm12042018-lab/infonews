@@ -157,9 +157,36 @@ detalle.
 
 ## Despliegue
 
+La aplicación es una SPA de Angular, así que el servidor debe redirigir
+cualquier ruta a `index.html` para que el router resuelva la ruta en el
+navegador (por ejemplo `/noticias/5` al recargar o al abrir el enlace directo).
+
+La carpeta de salida del build de producción (`npm run build`) es
+`dist/infonews/browser`. El archivo `src/index.html` usa `<base href="/">`, que
+es correcto cuando la app se publica en la raíz del dominio.
+
+### Netlify
+
+El repositorio incluye `netlify.toml` con:
+
+- comando de build: `npm run build`;
+- carpeta de publicación: `dist/infonews/browser`;
+- redirección SPA de `/*` a `/index.html` con estado `200`.
+
+Basta con conectar el repositorio en Netlify: detectará la configuración
+automáticamente. Define la variable de entorno `NODE_VERSION` (por ejemplo
+`22.12.0`) en *Site settings → Environment variables*.
+
+### Vercel
+
+El repositorio incluye `vercel.json` con el comando de build, la carpeta de
+salida y la reescritura de todas las rutas hacia `/index.html`. Importa el
+proyecto desde Vercel y ajusta la versión de Node en *Settings → Node.js
+Version* (o con `NODE_VERSION`) a `22.12.0` o superior.
+
 - URL del despliegue: [URL DEL DESPLIEGUE]
 - URL del vídeo: [URL DEL VIDEO]
 
 ## Autor
 
-[TU NOMBRE]
+[Daniela Camargo]

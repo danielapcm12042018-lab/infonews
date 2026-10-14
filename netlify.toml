@@ -1,0 +1,12 @@
+# Configuración de despliegue en Netlify para la SPA de InfoNews.
+# Al ser una aplicación de una sola página, cualquier ruta desconocida se
+# sirve con index.html (status 200) para que Angular resuelva el routing.
+
+[build]
+  command = "npm run build"
+  publish = "dist/infonews/browser"
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
