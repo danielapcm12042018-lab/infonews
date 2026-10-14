@@ -1,9 +1,12 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable, inject, signal } from '@angular/core';
-import { ContactoInfo } from '../models/contacto.model';
+import { ContactoInfo, MensajeContacto } from '../models/contacto.model';
 
 /** Ruta servible del JSON de contacto. */
 const RUTA_JSON = 'assets/data/contacto.json';
+
+/** Clave de localStorage donde se guardan los mensajes enviados. */
+const CLAVE_MENSAJES = 'infonews-mensajes';
 
 /**
  * Carga los datos de contacto del sitio (correo, teléfono, dirección y horario).
@@ -29,5 +32,32 @@ export class ContactoService {
       next: (info) => this.infoSignal.set(info),
       error: (err) => console.error('No se pudo cargar la información de contacto:', err.message),
     });
+  }
+
+  /**
+   * Guarda un mensaje enviado desde el formulario de contacto en localStorage.
+   * No hay backend: esta lista local sirve como evidencia de la interacción.
+   */
+  guardarMensaje(mensaje: MensajeContacto): void {
+    const lista = this.leerMensajes();
+    lista.push(mensaje);
+
+    try {
+      localStorage.setItem(CLAVE_MENSAJES, JSON.stringify(lista));
+    } catch (error) {
+      console.error('No se pudo guardar el mensaje de contacto:', error);
+    }
+  }
+
+  /** Lee la lista de mensajes guardados; si el texto está dañado devuelve una lista vacía. */
+  private leerMensajes(): MensajeContacto[] {
+    try {
+      const texto = localStorage.getItem(CLAVE_MENSAJES);
+      const lista = texto ? JSON.parse(texto) : [];
+      return Array.isArray(lista) ? (lista as MensajeContacto[]) : [];
+    } catch (error) {
+      console.error('No se pudieron leer los mensajes de contacto:', error);
+      return [];
+    }
   }
 }

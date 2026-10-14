@@ -1,0 +1,48 @@
+<!-- Cabecera de la página: migas, título y botón de vaciar -->
+<section class="cabecera-pagina">
+  <div class="contenedor">
+    <nav class="migas" aria-label="Migas de pan">
+      <a routerLink="/">Inicio</a>
+      <span aria-hidden="true">&rsaquo;</span>
+      <span>Favoritos</span>
+    </nav>
+
+    <div class="cabecera-fila">
+      <div>
+        <h1>Mis favoritos</h1>
+        <p>Las noticias que guardaste para leer más tarde.</p>
+      </div>
+
+      @if (total() > 0) {
+        <button class="btn btn-primario" type="button" (click)="vaciar()">
+          Vaciar favoritos
+        </button>
+      }
+    </div>
+  </div>
+</section>
+
+<!-- Contenido: contador, listado o estado vacío -->
+<div class="contenedor contenido-favoritos">
+  @if (total() === 0) {
+    <div class="favoritos-vacio">
+      <h2>Aún no tienes noticias guardadas</h2>
+      <p>Usa el marcador en las noticias para guardarlas aquí.</p>
+      <a class="btn btn-primario" routerLink="/noticias">Explorar noticias</a>
+    </div>
+  } @else {
+    <p class="favoritos-contador" aria-live="polite">
+      Tienes {{ total() }} {{ total() === 1 ? 'noticia guardada' : 'noticias guardadas' }}
+    </p>
+
+    <div class="grilla-2">
+      @for (noticia of favoritos(); track noticia.id) {
+        <app-noticia-card
+          [noticia]="noticia"
+          [mostrarQuitar]="true"
+          [variante]="'listado'"
+        />
+      }
+    </div>
+  }
+</div>

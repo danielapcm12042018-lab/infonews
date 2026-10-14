@@ -21,6 +21,12 @@ export class NoticiaCardComponent {
   /** Noticia que muestra la tarjeta (obligatoria). */
   readonly noticia = input.required<Noticia>();
 
+  /** Muestra un botón de texto "Quitar" en lugar del marcador (página de favoritos). */
+  readonly mostrarQuitar = input(false);
+
+  /** Variante visual de la tarjeta: "normal" o "listado" (sin fondo, con línea inferior). */
+  readonly variante = input<'normal' | 'listado'>('normal');
+
   /** Indica si la noticia está en favoritos (se recalcula al cambiar los favoritos). */
   protected readonly esFavorito = computed(() => this.favoritosService.esFavorito(this.noticia().id));
 
@@ -31,5 +37,11 @@ export class NoticiaCardComponent {
       guardado ? 'Añadido a favoritos' : 'Eliminado de favoritos',
       guardado ? 'exito' : 'info',
     );
+  }
+
+  /** Quita la noticia de favoritos y avisa al usuario (botón "Quitar"). */
+  protected quitarFavorito(): void {
+    this.favoritosService.quitar(this.noticia().id);
+    this.avisosService.mostrar('Eliminado de favoritos', 'info');
   }
 }

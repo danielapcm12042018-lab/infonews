@@ -1,0 +1,138 @@
+/* =========================================================================
+   Favoritos - estilos propios de la página
+   Migrado desde legacy/assets/css/pages/favoritos.css
+   ========================================================================= */
+
+/* --- Cabecera de la página --- */
+.cabecera-pagina {
+    background-color: #f1f5f9;
+    border-bottom: 1px solid var(--color-borde);
+    padding-top: var(--espacio-4);
+    padding-bottom: var(--espacio-4);
+}
+
+.migas {
+    display: flex;
+    gap: var(--espacio-2);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    color: var(--color-texto-suave);
+    margin-bottom: var(--espacio-3);
+}
+
+.migas a:hover {
+    color: var(--color-primario);
+}
+
+.cabecera-fila {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: var(--espacio-4);
+    flex-wrap: wrap;
+}
+
+.cabecera-fila h1 {
+    font-size: 3rem;
+    font-weight: 700;
+}
+
+.cabecera-fila p {
+    max-width: 520px;
+    color: var(--color-texto-suave);
+    margin-top: var(--espacio-2);
+}
+
+/* --- Contenido y contador --- */
+.contenido-favoritos {
+    padding-top: var(--espacio-5);
+    padding-bottom: var(--espacio-5);
+}
+
+.favoritos-contador {
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--color-texto-suave);
+    margin-bottom: var(--espacio-4);
+}
+
+/* --- Grilla: dos noticias por fila --- */
+.grilla-2 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--espacio-4);
+}
+
+/* --- Estado vacío --- */
+.favoritos-vacio {
+    text-align: center;
+    padding: var(--espacio-6) var(--espacio-4);
+    background-color: var(--color-fondo-suave);
+}
+
+.favoritos-vacio h2 {
+    font-family: var(--fuente-titulos);
+    font-size: 1.6rem;
+}
+
+.favoritos-vacio p {
+    color: var(--color-texto-suave);
+    margin-top: var(--espacio-3);
+    margin-bottom: var(--espacio-3);
+}
+
+/* =========================================================================
+   Variante "listado" de la tarjeta: sin fondo ni borde, con línea inferior.
+   Se aplica a las tarjetas de esta página; ::ng-deep permite estilar el
+   interior del componente app-noticia-card.
+   ========================================================================= */
+:host ::ng-deep .card.card-listado {
+    background-color: transparent;
+    border: 0;
+    border-bottom: 1px solid var(--color-borde);
+    padding-bottom: var(--espacio-3);
+}
+
+:host ::ng-deep .card-listado img {
+    height: 230px;
+    object-fit: cover;
+}
+
+:host ::ng-deep .card-listado h3 {
+    font-size: 1.3rem;
+    font-weight: 500;
+    padding: 0;
+    margin-top: var(--espacio-2);
+}
+
+:host ::ng-deep .card-listado p {
+    padding: 0;
+    font-size: 0.9rem;
+    color: var(--color-texto-suave);
+}
+
+:host ::ng-deep .card-listado .card-pie {
+    border-top: none;
+    padding: 0;
+    margin-top: var(--espacio-2);
+    justify-content: space-between;
+}
+
+:host ::ng-deep .card-listado .leer-mas {
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    letter-spacing: 1px;
+}
+
+/* --- Responsive: en móvil las noticias van de una en una --- */
+@media (max-width: 600px) {
+    .grilla-2 {
+        grid-template-columns: 1fr;
+    }
+
+    .cabecera-fila h1 {
+        font-size: 2rem;
+    }
+}
