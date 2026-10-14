@@ -127,8 +127,14 @@ export class ContactoComponent {
 
   /** Lleva el foco al primer campo inválido del formulario. */
   private enfocarPrimerError(): void {
-    const primerError =
-      this.formularioRef()?.nativeElement.querySelector<HTMLElement>('input.ng-invalid, textarea.ng-invalid');
+    const primerError = this.formularioRef()?.nativeElement.querySelector<HTMLElement>(
+      'input.ng-invalid, textarea.ng-invalid',
+    );
     primerError?.focus();
+  }
+
+  /** Avisa de que una sección de accesos rápidos aún no está disponible. */
+  protected mostrarProximamente(seccion: string): void {
+    this.avisosService.mostrar(`${seccion}: disponible próximamente.`, 'info');
   }
 }

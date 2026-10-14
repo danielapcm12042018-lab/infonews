@@ -14,9 +14,7 @@
       </div>
 
       @if (total() > 0) {
-        <button class="btn btn-primario" type="button" (click)="vaciar()">
-          Vaciar favoritos
-        </button>
+        <button class="btn btn-primario" type="button" (click)="vaciar()">Vaciar favoritos</button>
       }
     </div>
   </div>
@@ -37,11 +35,7 @@
 
     <div class="grilla-2">
       @for (noticia of favoritos(); track noticia.id) {
-        <app-noticia-card
-          [noticia]="noticia"
-          [mostrarQuitar]="true"
-          [variante]="'listado'"
-        />
+        <app-noticia-card [noticia]="noticia" [mostrarQuitar]="true" [variante]="'listado'" />
       }
     </div>
   }

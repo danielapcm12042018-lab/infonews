@@ -12,7 +12,13 @@
     </div>
 
     <div class="contacto-hero-imagen">
-      <img src="assets/img/contacto.jpg" alt="Conectividad global y comunicación" width="600" height="340" />
+      <img
+        src="assets/img/contacto.jpg"
+        alt="Conectividad global y comunicación"
+        width="600"
+        height="340"
+        fetchpriority="high"
+      />
     </div>
   </div>
 </section>
@@ -30,32 +36,65 @@
     @if (contactoService.info(); as info) {
       <div class="info-tarjeta">
         <span class="info-icono" aria-hidden="true">
-          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <svg
+            viewBox="0 0 24 24"
+            width="18"
+            height="18"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
             <rect width="20" height="16" x="2" y="4" rx="2" />
             <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
           </svg>
         </span>
         <div>
           <h3>Correo electrónico</h3>
-          <p><span>Redacción:</span> <a [href]="'mailto:' + info.correo">{{ info.correo }}</a></p>
+          <p>
+            <span>Redacción:</span> <a [href]="'mailto:' + info.correo">{{ info.correo }}</a>
+          </p>
         </div>
       </div>
 
       <div class="info-tarjeta">
         <span class="info-icono" aria-hidden="true">
-          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z" />
+          <svg
+            viewBox="0 0 24 24"
+            width="18"
+            height="18"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path
+              d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"
+            />
           </svg>
         </span>
         <div>
           <h3>Línea telefónica</h3>
-          <p><span>Central:</span> <a [href]="'tel:' + info.telefono">{{ info.telefono }}</a></p>
+          <p>
+            <span>Central:</span> <a [href]="'tel:' + info.telefono">{{ info.telefono }}</a>
+          </p>
         </div>
       </div>
 
       <div class="info-tarjeta">
         <span class="info-icono" aria-hidden="true">
-          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <svg
+            viewBox="0 0 24 24"
+            width="18"
+            height="18"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
             <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z" />
             <circle cx="12" cy="10" r="3" />
           </svg>
@@ -68,7 +107,16 @@
 
       <div class="info-tarjeta">
         <span class="info-icono" aria-hidden="true">
-          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <svg
+            viewBox="0 0 24 24"
+            width="18"
+            height="18"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
             <circle cx="12" cy="12" r="10" />
             <path d="M12 6v6l4 2" />
           </svg>
@@ -82,10 +130,16 @@
 
     <div class="contacto-redes">
       <h2>Síguenos en redes</h2>
-      <a class="red-boton" href="#">Twitter</a>
-      <a class="red-boton" href="#">LinkedIn</a>
-      <a class="red-boton" href="#">Facebook</a>
-      <a class="red-boton" href="#">Instagram</a>
+      <a class="red-boton" href="https://www.x.com" target="_blank" rel="noopener">Twitter</a>
+      <a class="red-boton" href="https://www.linkedin.com" target="_blank" rel="noopener"
+        >LinkedIn</a
+      >
+      <a class="red-boton" href="https://www.facebook.com" target="_blank" rel="noopener"
+        >Facebook</a
+      >
+      <a class="red-boton" href="https://www.instagram.com" target="_blank" rel="noopener"
+        >Instagram</a
+      >
     </div>
   </section>
 
@@ -175,7 +229,16 @@
       </div>
 
       <button class="btn btn-primario btn-ancho" type="submit">
-        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <svg
+          viewBox="0 0 24 24"
+          width="16"
+          height="16"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
           <path d="m22 2-7 20-4-9-9-4Z" />
           <path d="M22 2 11 13" />
         </svg>
@@ -195,27 +258,55 @@
     <h2>¿Buscas algo más específico?</h2>
 
     <div class="extra-grilla">
-      <a class="extra-tarjeta" href="#">
+      <button
+        class="extra-tarjeta"
+        type="button"
+        (click)="mostrarProximamente('Prensa internacional')"
+      >
         <span class="extra-icono">
-          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <svg
+            viewBox="0 0 24 24"
+            width="22"
+            height="22"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
             <circle cx="12" cy="12" r="10" />
             <path d="M2 12h20" />
-            <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
+            <path
+              d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"
+            />
           </svg>
         </span>
         <h3>Prensa internacional</h3>
         <p>Conoce nuestras colaboraciones con agencias de noticias globales.</p>
-      </a>
+      </button>
 
-      <a class="extra-tarjeta" href="#">
+      <button
+        class="extra-tarjeta"
+        type="button"
+        (click)="mostrarProximamente('Preguntas frecuentes')"
+      >
         <span class="extra-icono">
-          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <svg
+            viewBox="0 0 24 24"
+            width="22"
+            height="22"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
             <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
           </svg>
         </span>
         <h3>Preguntas frecuentes</h3>
         <p>Resuelve tus dudas sobre suscripciones y pagos inmediatamente.</p>
-      </a>
+      </button>
     </div>
   </div>
 </section>

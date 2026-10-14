@@ -148,9 +148,7 @@ export class NoticiasService {
       this.noticiasCreadas.update((lista) => lista.filter((noticia) => noticia.id !== idNumero));
       this.guardarLocalStorage(CLAVE_NOTICIAS_CREADAS, this.noticiasCreadas());
     } else {
-      this.noticiasEliminadas.update((ids) =>
-        ids.includes(idNumero) ? ids : [...ids, idNumero],
-      );
+      this.noticiasEliminadas.update((ids) => (ids.includes(idNumero) ? ids : [...ids, idNumero]));
       this.guardarLocalStorage(CLAVE_NOTICIAS_ELIMINADAS, this.noticiasEliminadas());
     }
 

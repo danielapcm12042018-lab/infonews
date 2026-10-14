@@ -81,7 +81,10 @@ describe('FavoritosComponent', () => {
   });
 
   it('vacía todos los favoritos tras confirmar', () => {
-    vi.stubGlobal('confirm', vi.fn(() => true));
+    vi.stubGlobal(
+      'confirm',
+      vi.fn(() => true),
+    );
 
     const fixture = crearComponente();
     favoritosService.agregar(1);

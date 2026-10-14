@@ -10,13 +10,7 @@ import { NoticiasService } from '../../services/noticias.service';
 
 /** Campos del formulario de creación. */
 type CampoNoticia =
-  | 'titulo'
-  | 'subtitulo'
-  | 'categoria'
-  | 'autor'
-  | 'imagen'
-  | 'descripcion'
-  | 'contenido';
+  'titulo' | 'subtitulo' | 'categoria' | 'autor' | 'imagen' | 'descripcion' | 'contenido';
 
 /**
  * Página de gestión de noticias (mini CRUD). Permite crear noticias con un
@@ -73,10 +67,9 @@ export class GestionarComponent {
   );
 
   /** Imagen elegida para la vista previa. */
-  protected readonly imagenSeleccionada = toSignal(
-    this.formulario.controls.imagen.valueChanges,
-    { initialValue: '' },
-  );
+  protected readonly imagenSeleccionada = toSignal(this.formulario.controls.imagen.valueChanges, {
+    initialValue: '',
+  });
 
   /** True cuando ya se intentó enviar (para mostrar errores sin tocar). */
   protected readonly enviado = signal(false);

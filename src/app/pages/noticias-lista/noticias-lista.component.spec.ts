@@ -44,9 +44,30 @@ function noticiaFake(
 const DATOS: NoticiasData = {
   categorias: ['Salud', 'Tecnología'],
   noticias: [
-    noticiaFake(1, 'Salud', 'Vacuna contra la gripe', 'Campaña de vacunación', ['salud'], '2026-01-01'),
-    noticiaFake(2, 'Tecnología', 'Nuevo procesador cuántico', 'Avance en computación', ['ia', 'cuantica'], '2026-01-02'),
-    noticiaFake(3, 'Salud', 'Avance en cardiología', 'Nuevos tratamientos', ['salud', 'corazon'], '2026-01-03'),
+    noticiaFake(
+      1,
+      'Salud',
+      'Vacuna contra la gripe',
+      'Campaña de vacunación',
+      ['salud'],
+      '2026-01-01',
+    ),
+    noticiaFake(
+      2,
+      'Tecnología',
+      'Nuevo procesador cuántico',
+      'Avance en computación',
+      ['ia', 'cuantica'],
+      '2026-01-02',
+    ),
+    noticiaFake(
+      3,
+      'Salud',
+      'Avance en cardiología',
+      'Nuevos tratamientos',
+      ['salud', 'corazon'],
+      '2026-01-03',
+    ),
   ],
 };
 

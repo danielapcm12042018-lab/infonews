@@ -133,7 +133,10 @@ describe('GestionarComponent', () => {
   });
 
   it('elimina una noticia tras confirmar', () => {
-    vi.stubGlobal('confirm', vi.fn(() => true));
+    vi.stubGlobal(
+      'confirm',
+      vi.fn(() => true),
+    );
 
     const fixture = crearComponente();
     const comp = componente(fixture);
@@ -146,7 +149,10 @@ describe('GestionarComponent', () => {
   });
 
   it('restablece el listado original tras confirmar', () => {
-    vi.stubGlobal('confirm', vi.fn(() => true));
+    vi.stubGlobal(
+      'confirm',
+      vi.fn(() => true),
+    );
 
     const fixture = crearComponente();
     const comp = componente(fixture);

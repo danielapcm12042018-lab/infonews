@@ -4,238 +4,238 @@
 
 /* --- Cabecera de la página --- */
 .cabecera-pagina {
-    background-color: #f1f5f9;
-    border-bottom: 1px solid var(--color-borde);
-    padding-top: var(--espacio-4);
-    padding-bottom: var(--espacio-4);
+  background-color: #f1f5f9;
+  border-bottom: 1px solid var(--color-borde);
+  padding-top: var(--espacio-4);
+  padding-bottom: var(--espacio-4);
 }
 
 .migas {
-    display: flex;
-    gap: var(--espacio-2);
-    font-size: 0.75rem;
-    text-transform: uppercase;
-    color: var(--color-texto-suave);
-    margin-bottom: var(--espacio-3);
+  display: flex;
+  gap: var(--espacio-2);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  color: var(--color-texto-suave);
+  margin-bottom: var(--espacio-3);
 }
 
 .migas a:hover {
-    color: var(--color-primario);
+  color: var(--color-primario);
 }
 
 .cabecera-fila {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
-    gap: var(--espacio-4);
-    flex-wrap: wrap;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: var(--espacio-4);
+  flex-wrap: wrap;
 }
 
 .cabecera-fila h1 {
-    font-size: 3rem;
+  font-size: 3rem;
 }
 
 .cabecera-fila p {
-    max-width: 520px;
-    color: var(--color-texto-suave);
-    margin-top: var(--espacio-2);
+  max-width: 520px;
+  color: var(--color-texto-suave);
+  margin-top: var(--espacio-2);
 }
 
 .campo-buscar {
-    width: 320px;
-    padding: 10px 14px;
-    border: 1px solid var(--color-borde);
-    background-color: var(--color-blanco);
-    font-size: 0.9rem;
-    border-radius: var(--radio-chico);
+  width: 320px;
+  padding: 10px 14px;
+  border: 1px solid var(--color-borde);
+  background-color: var(--color-blanco);
+  font-size: 0.9rem;
+  border-radius: var(--radio-chico);
 }
 
 /* --- Barra de filtros --- */
 .barra-filtros {
-    background-color: var(--color-blanco);
-    border-bottom: 1px solid var(--color-borde);
+  background-color: var(--color-blanco);
+  border-bottom: 1px solid var(--color-borde);
 }
 
 .filtros-fila {
-    display: flex;
-    align-items: center;
-    gap: var(--espacio-4);
-    flex-wrap: wrap;
+  display: flex;
+  align-items: center;
+  gap: var(--espacio-4);
+  flex-wrap: wrap;
 }
 
 .filtros-etiqueta {
-    font-size: 0.75rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    color: var(--color-texto-suave);
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: var(--color-texto-suave);
 }
 
 .filtros-lista {
-    display: flex;
-    flex-wrap: wrap;
-    gap: var(--espacio-3);
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--espacio-3);
 }
 
 .filtro {
-    background-color: transparent;
-    border: none;
-    cursor: pointer;
-    padding: 14px 4px;
-    font-size: 0.75rem;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    color: var(--color-texto-suave);
-    border-bottom: 2px solid transparent;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 14px 4px;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--color-texto-suave);
+  border-bottom: 2px solid transparent;
 }
 
 .filtro:hover {
-    color: var(--color-primario);
+  color: var(--color-primario);
 }
 
 .filtro.activo {
-    color: var(--color-primario);
-    font-weight: 600;
-    border-bottom: 2px solid var(--color-primario);
+  color: var(--color-primario);
+  font-weight: 600;
+  border-bottom: 2px solid var(--color-primario);
 }
 
 /* --- Contenido: listado + barra lateral --- */
 .contenido-listado {
-    display: grid;
-    grid-template-columns: 2fr 1fr;
-    gap: var(--espacio-5);
-    align-items: start;
-    padding-top: var(--espacio-5);
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: var(--espacio-5);
+  align-items: start;
+  padding-top: var(--espacio-5);
 }
 
 .resultado-barra {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: var(--espacio-3);
-    flex-wrap: wrap;
-    margin-bottom: var(--espacio-4);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--espacio-3);
+  flex-wrap: wrap;
+  margin-bottom: var(--espacio-4);
 }
 
 .contador-resultados {
-    font-size: 0.85rem;
-    font-weight: 600;
-    color: var(--color-texto-suave);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--color-texto-suave);
 }
 
 .btn-limpiar {
-    background: none;
-    border: 1px solid var(--color-borde);
-    border-radius: var(--radio-chico);
-    padding: 6px 12px;
-    font-size: 0.75rem;
-    color: var(--color-primario);
-    cursor: pointer;
+  background: none;
+  border: 1px solid var(--color-borde);
+  border-radius: var(--radio-chico);
+  padding: 6px 12px;
+  font-size: 0.75rem;
+  color: var(--color-primario);
+  cursor: pointer;
 }
 
 .btn-limpiar:hover {
-    border-color: var(--color-primario);
+  border-color: var(--color-primario);
 }
 
 /* --- Grilla de tarjetas --- */
 .grilla-2 {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: var(--espacio-4);
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--espacio-4);
 }
 
 /* --- Barra lateral --- */
 .listado-lateral {
-    display: flex;
-    flex-direction: column;
-    gap: var(--espacio-5);
+  display: flex;
+  flex-direction: column;
+  gap: var(--espacio-5);
 }
 
 .caja-mas-leido {
-    background: none;
-    border-left: none;
-    padding: 0;
+  background: none;
+  border-left: none;
+  padding: 0;
 }
 
 .caja-mas-leido .titulo-caja {
-    border-bottom: 2px solid var(--color-texto);
-    padding-bottom: var(--espacio-2);
+  border-bottom: 2px solid var(--color-texto);
+  padding-bottom: var(--espacio-2);
 }
 
 .caja-temas .titulo-caja {
-    border-bottom: 1px solid var(--color-borde);
-    padding-bottom: var(--espacio-2);
+  border-bottom: 1px solid var(--color-borde);
+  padding-bottom: var(--espacio-2);
 }
 
 .lista-temas {
-    display: flex;
-    flex-wrap: wrap;
-    gap: var(--espacio-2);
-    margin-top: var(--espacio-3);
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--espacio-2);
+  margin-top: var(--espacio-3);
 }
 
 .tema {
-    background-color: #e0f2fe;
-    color: var(--color-primario);
-    border: none;
-    font-size: 0.75rem;
-    padding: 5px 12px;
-    cursor: pointer;
+  background-color: #e0f2fe;
+  color: var(--color-primario);
+  border: none;
+  font-size: 0.75rem;
+  padding: 5px 12px;
+  cursor: pointer;
 }
 
 .tema:hover {
-    background-color: #bfdbfe;
+  background-color: #bfdbfe;
 }
 
 /* --- Pensamiento del día --- */
 .pensamiento {
-    background-color: #f1f5f9;
-    text-align: center;
-    padding-top: var(--espacio-6);
-    padding-bottom: var(--espacio-6);
-    margin-top: var(--espacio-6);
-    border-top: 1px solid var(--color-borde);
+  background-color: #f1f5f9;
+  text-align: center;
+  padding-top: var(--espacio-6);
+  padding-bottom: var(--espacio-6);
+  margin-top: var(--espacio-6);
+  border-top: 1px solid var(--color-borde);
 }
 
 .pensamiento-etiqueta {
-    font-size: 0.75rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    color: var(--color-primario);
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: var(--color-primario);
 }
 
 .pensamiento blockquote {
-    font-family: var(--fuente-titulos);
-    font-style: italic;
-    font-size: 1.6rem;
-    max-width: 700px;
-    margin: var(--espacio-3) auto;
-    color: var(--color-texto);
+  font-family: var(--fuente-titulos);
+  font-style: italic;
+  font-size: 1.6rem;
+  max-width: 700px;
+  margin: var(--espacio-3) auto;
+  color: var(--color-texto);
 }
 
 .pensamiento-autor {
-    font-size: 0.8rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    color: var(--color-texto-suave);
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: var(--color-texto-suave);
 }
 
 /* --- Responsive --- */
 @media (max-width: 900px) {
-    .contenido-listado {
-        grid-template-columns: 1fr;
-    }
+  .contenido-listado {
+    grid-template-columns: 1fr;
+  }
 
-    .campo-buscar {
-        width: 100%;
-    }
+  .campo-buscar {
+    width: 100%;
+  }
 }
 
 @media (max-width: 600px) {
-    .grilla-2 {
-        grid-template-columns: 1fr;
-    }
+  .grilla-2 {
+    grid-template-columns: 1fr;
+  }
 
-    .cabecera-fila h1 {
-        font-size: 2rem;
-    }
+  .cabecera-fila h1 {
+    font-size: 2rem;
+  }
 }

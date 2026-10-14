@@ -10,7 +10,10 @@
     <div class="cabecera-fila">
       <div>
         <h1>Archivo de Noticias</h1>
-        <p>Explore nuestro catálogo completo de periodismo riguroso y análisis profundo sobre los temas que definen nuestro tiempo.</p>
+        <p>
+          Explore nuestro catálogo completo de periodismo riguroso y análisis profundo sobre los
+          temas que definen nuestro tiempo.
+        </p>
       </div>
       <input
         type="search"
@@ -63,7 +66,9 @@
     } @else if (total() === 0) {
       <div class="sin-resultados">
         <p>No se encontraron noticias con los filtros seleccionados.</p>
-        <button class="btn btn-primario" type="button" (click)="limpiarFiltros()">Limpiar filtros</button>
+        <button class="btn btn-primario" type="button" (click)="limpiarFiltros()">
+          Limpiar filtros
+        </button>
       </div>
     } @else {
       <div class="grilla-2">
@@ -84,7 +89,9 @@
             <span class="mas-leido-numero">{{ i + 1 }}</span>
             <div class="mas-leido-texto">
               <span class="mas-leido-cat">{{ noticia.categoria }}</span>
-              <a class="mas-leido-titulo" [routerLink]="['/noticias', noticia.id]">{{ noticia.titulo }}</a>
+              <a class="mas-leido-titulo" [routerLink]="['/noticias', noticia.id]">{{
+                noticia.titulo
+              }}</a>
             </div>
           </li>
         }
@@ -109,7 +116,10 @@
 <section class="pensamiento">
   <div class="contenedor">
     <p class="pensamiento-etiqueta">Pensamiento del día</p>
-    <blockquote>"El periodismo es lo que alguien no quiere que se publique. Todo lo demás es relaciones públicas."</blockquote>
+    <blockquote>
+      "El periodismo es lo que alguien no quiere que se publique. Todo lo demás es relaciones
+      públicas."
+    </blockquote>
     <p class="pensamiento-autor">— George Orwell</p>
   </div>
 </section>

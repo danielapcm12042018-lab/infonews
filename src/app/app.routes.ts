@@ -48,8 +48,6 @@ export const routes: Routes = [
     path: '**',
     title: 'InfoNews · Página no encontrada',
     loadComponent: () =>
-      import('./pages/no-encontrado/no-encontrado.component').then(
-        (m) => m.NoEncontradoComponent,
-      ),
+      import('./pages/no-encontrado/no-encontrado.component').then((m) => m.NoEncontradoComponent),
   },
 ];

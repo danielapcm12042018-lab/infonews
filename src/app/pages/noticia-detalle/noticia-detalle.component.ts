@@ -76,7 +76,7 @@ export class NoticiaDetalleComponent {
       }
       const noticia = this.noticia();
       this.titleService.setTitle(
-        noticia ? `InfoNews | ${noticia.titulo}` : 'InfoNews | Noticia no encontrada',
+        noticia ? `InfoNews · ${noticia.titulo}` : 'InfoNews · Noticia no encontrada',
       );
     });
   }

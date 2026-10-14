@@ -2,7 +2,9 @@
 <section class="bienvenida">
   <div class="contenedor">
     <h1>InfoNews</h1>
-    <p>Periodismo independiente y de profundidad. Actualidad, cultura y análisis, todos los días.</p>
+    <p>
+      Periodismo independiente y de profundidad. Actualidad, cultura y análisis, todos los días.
+    </p>
     <div class="bienvenida-acciones">
       <a class="btn btn-blanco" routerLink="/noticias">Explorar noticias</a>
       <a class="btn btn-contorno" routerLink="/contacto">Contactar</a>
@@ -44,7 +46,9 @@
           <span class="mas-leido-numero">{{ i + 1 }}</span>
           <div class="mas-leido-texto">
             <span class="mas-leido-cat">{{ noticia.categoria }}</span>
-            <a class="mas-leido-titulo" [routerLink]="['/noticias', noticia.id]">{{ noticia.titulo }}</a>
+            <a class="mas-leido-titulo" [routerLink]="['/noticias', noticia.id]">{{
+              noticia.titulo
+            }}</a>
           </div>
         </li>
       }
@@ -90,7 +94,9 @@
               height="48"
             />
           } @else {
-            <span class="testimonio-iniciales" aria-hidden="true">{{ iniciales(testimonio.nombre) }}</span>
+            <span class="testimonio-iniciales" aria-hidden="true">{{
+              iniciales(testimonio.nombre)
+            }}</span>
           }
           <span class="testimonio-datos">
             <cite class="testimonio-nombre">{{ testimonio.nombre }}</cite>
@@ -120,8 +126,12 @@
 
   @if (contactoService.info(); as info) {
     <div class="contacto-datos">
-      <p><strong>Correo:</strong> <a [href]="'mailto:' + info.correo">{{ info.correo }}</a></p>
-      <p><strong>Teléfono:</strong> <a [href]="'tel:' + info.telefono">{{ info.telefono }}</a></p>
+      <p>
+        <strong>Correo:</strong> <a [href]="'mailto:' + info.correo">{{ info.correo }}</a>
+      </p>
+      <p>
+        <strong>Teléfono:</strong> <a [href]="'tel:' + info.telefono">{{ info.telefono }}</a>
+      </p>
       <p><strong>Dirección:</strong> {{ info.direccion }}</p>
       <p><strong>Horario:</strong> {{ info.horario }}</p>
     </div>

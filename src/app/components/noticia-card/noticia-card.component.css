@@ -1,1 +1,43 @@
-/* Los estilos de la tarjeta (.card) son compartidos y viven en src/styles.css. */
+/*
+ * Los estilos base de la tarjeta (.card) son compartidos y viven en src/styles.css.
+ * Aquí solo se define la variante "listado" (sin fondo ni borde, con línea
+ * inferior), que usan páginas como Favoritos. Al estar en el propio componente,
+ * no hace falta perforar el encapsulado de estilos con ::ng-deep.
+ */
+.card.card-listado {
+  background-color: transparent;
+  border: 0;
+  border-bottom: 1px solid var(--color-borde);
+  padding-bottom: var(--espacio-3);
+}
+
+.card-listado img {
+  height: 230px;
+  object-fit: cover;
+}
+
+.card-listado h3 {
+  font-size: 1.3rem;
+  font-weight: 500;
+  padding: 0;
+  margin-top: var(--espacio-2);
+}
+
+.card-listado p {
+  padding: 0;
+  font-size: 0.9rem;
+  color: var(--color-texto-suave);
+}
+
+.card-listado .card-pie {
+  border-top: none;
+  padding: 0;
+  margin-top: var(--espacio-2);
+  justify-content: space-between;
+}
+
+.card-listado .leer-mas {
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  letter-spacing: 1px;
+}

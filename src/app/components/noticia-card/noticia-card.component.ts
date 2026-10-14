@@ -28,7 +28,9 @@ export class NoticiaCardComponent {
   readonly variante = input<'normal' | 'listado'>('normal');
 
   /** Indica si la noticia está en favoritos (se recalcula al cambiar los favoritos). */
-  protected readonly esFavorito = computed(() => this.favoritosService.esFavorito(this.noticia().id));
+  protected readonly esFavorito = computed(() =>
+    this.favoritosService.esFavorito(this.noticia().id),
+  );
 
   /** Añade o quita la noticia de favoritos y avisa al usuario. */
   protected alternarFavorito(): void {
